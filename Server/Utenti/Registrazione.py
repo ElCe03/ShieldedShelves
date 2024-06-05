@@ -13,7 +13,7 @@ from redis import Redis
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'supersecretkey'
+app.config['SECRET_KEY'] = 'PSS2024!'
 app.config['WTF_CSRF_CHECK_DEFAULT'] = False
 CORS(app)
 db = SQLAlchemy(app)
