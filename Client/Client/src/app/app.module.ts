@@ -9,10 +9,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ActivatedRoute } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: RegisterComponent }, 
+  { path: '', component: HomeComponent }, 
   { path: 'register', component: RegisterComponent }, 
 ];
 
@@ -28,13 +27,11 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CsrfInterceptor, multi: true },
-    ActivatedRoute
   ],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }

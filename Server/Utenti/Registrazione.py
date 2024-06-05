@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_wtf import CSRFProtect
+from flask_cors import CORS
 from marshmallow import Schema, fields, validate, ValidationError
 import logging
 from logging.handlers import RotatingFileHandler
@@ -14,7 +15,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'supersecretkey'
 app.config['WTF_CSRF_CHECK_DEFAULT'] = False
-
+CORS(app)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 redis_store = Redis(host='localhost', port=6379)
@@ -40,7 +41,7 @@ class UserSchema(Schema):
     first_name = fields.Str(required=True, validate=validate.Length(min=1))
     last_name = fields.Str(required=True, validate=validate.Length(min=1))
     email = fields.Email(required=True, validate=validate.Email())
-    password = fields.Str(required=True, validate=validate.Length(min=6))
+    password = fields.Str(required=True, validate=validate.Length(min=8))
 
 user_schema = UserSchema()
 
@@ -50,24 +51,36 @@ user_schema = UserSchema()
 def register():
     try:
         data = request.get_json()
+        assert data is not None, "No data provided"
+        
         user_schema.load(data)
-    except ValidationError as err:
-        return jsonify(err.messages), 400
-
-    first_name = data['first_name']
-    last_name = data['last_name']
-    email = data['email']
-    password = data['password']
-
-    password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
-    new_user = User(first_name=first_name, last_name=last_name, email=email, password_hash=password_hash)
-
-    try:
+        
+        first_name = data.get('first_name')
+        last_name = data.get('last_name')
+        email = data.get('email')
+        password = data.get('password')
+        
+        assert first_name is not None, "First name is missing"
+        assert last_name is not None, "Last name is missing"
+        assert email is not None, "Email is missing"
+        assert password is not None, "Password is missing"
+        
+        password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+        new_user = User(first_name=first_name, last_name=last_name, email=email, password_hash=password_hash)
+        
         db.session.add(new_user)
         db.session.commit()
+        
         app.logger.info('User registered: %s', email)
         return jsonify(message="User registered successfully!"), 201
+    except ValidationError as err:
+        app.logger.warning('Validation error: %s', err.messages)
+        return jsonify(err.messages), 400
+    except AssertionError as e:
+        app.logger.warning('Assertion error: %s', e)
+        return jsonify(message=str(e)), 400
     except Exception as e:
+        db.session.rollback()  # Rollback in case of error
         app.logger.error('Error registering user: %s', e)
         return jsonify(message="Error: " + str(e)), 500
 
