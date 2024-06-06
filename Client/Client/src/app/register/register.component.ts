@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'] // Make sure you have a CSS file to style the error messages
+  styleUrls: ['./register.component.css'] 
 })
 export class RegisterComponent {
   registerForm: FormGroup;
@@ -19,7 +19,7 @@ export class RegisterComponent {
       password: ['', Validators.required]
     });
   }
-
+  
   onSubmit() {
     this.passwordStrengthMessage = this.checkPasswordStrength(this.registerForm.get('password')?.value);
     if (this.registerForm.valid && !this.passwordStrengthMessage) {

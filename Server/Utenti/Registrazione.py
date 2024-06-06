@@ -10,12 +10,15 @@ import logging
 from logging.handlers import RotatingFileHandler
 from redis import Redis
 from datetime import datetime
+from flask import request
+from flask_wtf.csrf import generate_csrf
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'PSS2024!'
-app.config['WTF_CSRF_CHECK_DEFAULT'] = False
+app.config['WTF_CSRF_CHECK_DEFAULT'] = True  
 CORS(app)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
@@ -25,9 +28,9 @@ limiter = Limiter(
     app=app,
     storage_uri="redis://localhost:6379"
 )
-csrf = CSRFProtect(app)
+csrf= CSRFProtect(app)
+csrf.init_app(app)
 
-# Logging configuration
 handler = RotatingFileHandler('app.log', maxBytes=10000, backupCount=1)
 handler.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
@@ -63,7 +66,6 @@ def log_response_info(response):
     return response
 
 @app.route('/register', methods=['POST'])
-@csrf.exempt
 @limiter.limit("5 per minute")
 def register():
     try:
@@ -82,6 +84,10 @@ def register():
         assert email is not None, "Email is missing"
         assert password is not None, "Password is missing"
         
+        existing_user = User.query.filter_by(email=email).first()
+        if existing_user:
+            return jsonify(message="Email already exists"), 409  # Conflict
+        
         password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
         new_user = User(first_name=first_name, last_name=last_name, email=email, password_hash=password_hash)
         db.session.add(new_user)
@@ -98,6 +104,12 @@ def register():
         db.session.rollback()  
         app.logger.error('Error registering user: %s', e)
         return jsonify(message="Error: " + str(e)), 500
+
+
+@app.route('/get_csrf_token', methods=['GET'])
+def get_csrf_token():
+    token = generate_csrf()
+    return jsonify({'csrf_token': token})
 
 if __name__ == '__main__':
     with app.app_context():
