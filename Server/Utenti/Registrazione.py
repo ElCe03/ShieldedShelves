@@ -9,6 +9,7 @@ from marshmallow import Schema, fields, validate, ValidationError
 import logging
 from logging.handlers import RotatingFileHandler
 from redis import Redis
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
@@ -26,9 +27,13 @@ limiter = Limiter(
 )
 csrf = CSRFProtect(app)
 
+# Logging configuration
 handler = RotatingFileHandler('app.log', maxBytes=10000, backupCount=1)
 handler.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
 app.logger.addHandler(handler)
+app.logger.setLevel(logging.INFO)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -44,6 +49,18 @@ class UserSchema(Schema):
     password = fields.Str(required=True, validate=validate.Length(min=8))
 
 user_schema = UserSchema()
+
+@app.before_request
+def log_request_info():
+    app.logger.info('Request: %s %s %s', request.remote_addr, request.method, request.url)
+    app.logger.info('Headers: %s', request.headers)
+    app.logger.info('Body: %s', request.get_data())
+
+@app.after_request
+def log_response_info(response):
+    app.logger.info('Response status: %s', response.status)
+    app.logger.info('Response body: %s', response.get_data(as_text=True))
+    return response
 
 @app.route('/register', methods=['POST'])
 @csrf.exempt
@@ -67,10 +84,8 @@ def register():
         
         password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
         new_user = User(first_name=first_name, last_name=last_name, email=email, password_hash=password_hash)
-        
         db.session.add(new_user)
         db.session.commit()
-        
         app.logger.info('User registered: %s', email)
         return jsonify(message="User registered successfully!"), 201
     except ValidationError as err:
@@ -80,7 +95,7 @@ def register():
         app.logger.warning('Assertion error: %s', e)
         return jsonify(message=str(e)), 400
     except Exception as e:
-        db.session.rollback()  # Rollback in case of error
+        db.session.rollback()  
         app.logger.error('Error registering user: %s', e)
         return jsonify(message="Error: " + str(e)), 500
 
