@@ -19,7 +19,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'PSS2024!'
 app.config['WTF_CSRF_CHECK_DEFAULT'] = True  
-CORS(app)
+CORS(app,supports_credentials=True)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 redis_store = Redis(host='localhost', port=6379)
@@ -86,12 +86,13 @@ def register():
         
         existing_user = User.query.filter_by(email=email).first()
         if existing_user:
-            return jsonify(message="Email already exists"), 409  # Conflict
+            return jsonify(message="User already exists"), 409  
         
         password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
         new_user = User(first_name=first_name, last_name=last_name, email=email, password_hash=password_hash)
         db.session.add(new_user)
         db.session.commit()
+        
         app.logger.info('User registered: %s', email)
         return jsonify(message="User registered successfully!"), 201
     except ValidationError as err:
