@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from './axiosConfig';
 import zxcvbn from 'zxcvbn'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +31,6 @@ const RegisterForm = () => {
 
   const calculatePasswordStrength = (password) => {
     const strength = zxcvbn(password);
-
 
     switch (strength.score) {
       case 0:
@@ -68,33 +68,33 @@ const RegisterForm = () => {
   };
 
   return (
-    <div>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          First Name:
-          <input type="text" name="first_name" value={formData.first_name} onChange={handleChange} required />
-        </label>
-        <br />
-        <label>
-          Last Name:
-          <input type="text" name="last_name" value={formData.last_name} onChange={handleChange} required />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" name="password" value={formData.password} onChange={handlePasswordChange} required />
-          <div>Password Strength: {passwordStrength}</div>
-        </label>
-        <br />
-        <button type="submit">Register</button>
-      </form>
-      {message && <p>{message}</p>}
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6 offset-md-3">
+          <h1 className="text-center mb-4">Register</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>First Name:</label>
+              <input type="text" name="first_name" value={formData.first_name} onChange={handleChange} className="form-control" required />
+            </div>
+            <div className="form-group">
+              <label>Last Name:</label>
+              <input type="text" name="last_name" value={formData.last_name} onChange={handleChange} className="form-control" required />
+            </div>
+            <div className="form-group">
+              <label>Email:</label>
+              <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control" required />
+            </div>
+            <div className="form-group">
+              <label>Password:</label>
+              <input type="password" name="password" value={formData.password} onChange={handlePasswordChange} className="form-control" required />
+              <div>Password Strength: {passwordStrength}</div>
+            </div>
+            <button type="submit" className="btn btn-primary btn-block">Register</button>
+          </form>
+          {message && <p className="mt-3 text-center">{message}</p>}
+        </div>
+      </div>
     </div>
   );
 };

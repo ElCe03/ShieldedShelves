@@ -1,140 +1,206 @@
-2024-06-07 11:49:41,444 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
-Accept: application/json, text/plain, */*
-Sec-Ch-Ua-Mobile: ?0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Ch-Ua-Platform: "Windows"
-Origin: http://localhost:3000
-Sec-Fetch-Site: same-site
-Sec-Fetch-Mode: cors
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
-Cookie: session=eyJjc3JmX3Rva2VuIjoiNTU3ZTgzZjVhMTY5NjEwNDY0ZmYyODRjZWIwNjljODc3MDUwOTU2YSJ9.ZmLVLw.Da4-pJagB-lPrVCv0jtu7O_Jmqs
+2024-06-07 12:36:49,331 - INFO - Response body: {"csrf_token":"ImFmOWJhMTk4NmMzYjZkNGMxZmU1ZTA5NDZmMmNiODAxY2Y1OTEwMjMi.ZmLiwQ.GyPgX_3jZFriT6BxLH_c-K1GbSk"}
+
+2024-06-07 12:36:49,333 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,333 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,361 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,361 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
 
 
-2024-06-07 11:49:41,444 - INFO - Body: b''
-2024-06-07 11:49:41,445 - INFO - Response status: 200 OK
-2024-06-07 11:49:41,445 - INFO - Response body: {
-  "csrf_token": "IjU1N2U4M2Y1YTE2OTYxMDQ2NGZmMjg0Y2ViMDY5Yzg3NzA1MDk1NmEi.ZmLXtQ.m7gcGa-kMkBXSG50UkCu6wSGDNQ"
-}
+2024-06-07 12:36:49,361 - INFO - Body: b''
+2024-06-07 12:36:49,362 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,362 - INFO - Response body: {"csrf_token":"ImNlODc1OTRiNmQxMTY3MDllYTA4ZDllMzk0NmU0NDZlZjI2N2FlOGYi.ZmLiwQ.pjZmk7NSOvf9g7c23ffNInO4Bes"}
 
-2024-06-07 11:49:41,762 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5000/register
-2024-06-07 11:49:41,763 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Accept: */*
-Access-Control-Request-Method: POST
-Access-Control-Request-Headers: content-type,x-csrftoken
-Origin: http://localhost:3000
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Fetch-Mode: cors
-Sec-Fetch-Site: same-site
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+2024-06-07 12:36:49,363 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,363 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,363 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,363 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Cookie: session=eyJjc3JmX3Rva2VuIjoiY2U4NzU5NGI2ZDExNjcwOWVhMDhkOWUzOTQ2ZTQ0NmVmMjY3YWU4ZiJ9.ZmLiwQ.9GVQ7N9zkVjElCokEsHmaBF6mGU
 
 
-2024-06-07 11:49:41,763 - INFO - Body: b''
-2024-06-07 11:49:41,764 - INFO - Response status: 200 OK
-2024-06-07 11:49:41,764 - INFO - Response body: 
-2024-06-07 11:49:41,769 - INFO - Request: 127.0.0.1 POST http://localhost:5000/register
-2024-06-07 11:49:41,769 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Content-Length: 99
-Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
-Accept: application/json, text/plain, */*
-Content-Type: application/json
-Sec-Ch-Ua-Mobile: ?0
-X-Csrftoken: IjU1N2U4M2Y1YTE2OTYxMDQ2NGZmMjg0Y2ViMDY5Yzg3NzA1MDk1NmEi.ZmLXtQ.m7gcGa-kMkBXSG50UkCu6wSGDNQ
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Ch-Ua-Platform: "Windows"
-Origin: http://localhost:3000
-Sec-Fetch-Site: same-site
-Sec-Fetch-Mode: cors
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
-Cookie: session=eyJjc3JmX3Rva2VuIjoiNTU3ZTgzZjVhMTY5NjEwNDY0ZmYyODRjZWIwNjljODc3MDUwOTU2YSJ9.ZmLVLw.Da4-pJagB-lPrVCv0jtu7O_Jmqs
+2024-06-07 12:36:49,363 - INFO - Body: b''
+2024-06-07 12:36:49,363 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,363 - INFO - Response body: {"csrf_token":"ImNlODc1OTRiNmQxMTY3MDllYTA4ZDllMzk0NmU0NDZlZjI2N2FlOGYi.ZmLiwQ.pjZmk7NSOvf9g7c23ffNInO4Bes"}
+
+2024-06-07 12:36:49,364 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,364 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,365 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,365 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Cookie: session=eyJjc3JmX3Rva2VuIjoiY2U4NzU5NGI2ZDExNjcwOWVhMDhkOWUzOTQ2ZTQ0NmVmMjY3YWU4ZiJ9.ZmLiwQ.9GVQ7N9zkVjElCokEsHmaBF6mGU
 
 
-2024-06-07 11:49:41,770 - INFO - Body: b'{"first_name":"mammt","last_name":"mammt","email":"mammt@mammt.com","password":"mamtm1233452345|!"}'
-2024-06-07 11:49:41,773 - INFO - Response status: 409 CONFLICT
-2024-06-07 11:49:41,773 - INFO - Response body: {
-  "message": "Email already exists"
-}
+2024-06-07 12:36:49,365 - INFO - Body: b''
+2024-06-07 12:36:49,365 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,365 - INFO - Response body: {"csrf_token":"ImNlODc1OTRiNmQxMTY3MDllYTA4ZDllMzk0NmU0NDZlZjI2N2FlOGYi.ZmLiwQ.pjZmk7NSOvf9g7c23ffNInO4Bes"}
 
-2024-06-07 11:56:29,319 - INFO - Request: 127.0.0.1 GET http://localhost:5000/get_csrf_token
-2024-06-07 11:56:29,320 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
-Accept: application/json, text/plain, */*
-Sec-Ch-Ua-Mobile: ?0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Ch-Ua-Platform: "Windows"
-Origin: http://localhost:3000
-Sec-Fetch-Site: same-site
-Sec-Fetch-Mode: cors
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
-Cookie: session=eyJjc3JmX3Rva2VuIjoiNTU3ZTgzZjVhMTY5NjEwNDY0ZmYyODRjZWIwNjljODc3MDUwOTU2YSJ9.ZmLVLw.Da4-pJagB-lPrVCv0jtu7O_Jmqs
+2024-06-07 12:36:49,366 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,366 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,367 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,367 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Cookie: session=eyJjc3JmX3Rva2VuIjoiY2U4NzU5NGI2ZDExNjcwOWVhMDhkOWUzOTQ2ZTQ0NmVmMjY3YWU4ZiJ9.ZmLiwQ.9GVQ7N9zkVjElCokEsHmaBF6mGU
 
 
-2024-06-07 11:56:29,320 - INFO - Body: b''
-2024-06-07 11:56:29,321 - INFO - Response status: 200 OK
-2024-06-07 11:56:29,321 - INFO - Response body: {
-  "csrf_token": "IjU1N2U4M2Y1YTE2OTYxMDQ2NGZmMjg0Y2ViMDY5Yzg3NzA1MDk1NmEi.ZmLZTQ.dpDCrLo5JnquuUt_vZHe7lUu0no"
-}
+2024-06-07 12:36:49,367 - INFO - Body: b''
+2024-06-07 12:36:49,367 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,367 - INFO - Response body: {"csrf_token":"ImNlODc1OTRiNmQxMTY3MDllYTA4ZDllMzk0NmU0NDZlZjI2N2FlOGYi.ZmLiwQ.pjZmk7NSOvf9g7c23ffNInO4Bes"}
 
-2024-06-07 11:56:29,649 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5000/register
-2024-06-07 11:56:29,650 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Accept: */*
-Access-Control-Request-Method: POST
-Access-Control-Request-Headers: content-type,x-csrftoken
-Origin: http://localhost:3000
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Fetch-Mode: cors
-Sec-Fetch-Site: same-site
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+2024-06-07 12:36:49,368 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,368 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,368 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,368 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Cookie: session=eyJjc3JmX3Rva2VuIjoiY2U4NzU5NGI2ZDExNjcwOWVhMDhkOWUzOTQ2ZTQ0NmVmMjY3YWU4ZiJ9.ZmLiwQ.9GVQ7N9zkVjElCokEsHmaBF6mGU
 
 
-2024-06-07 11:56:29,651 - INFO - Body: b''
-2024-06-07 11:56:29,651 - INFO - Response status: 200 OK
-2024-06-07 11:56:29,652 - INFO - Response body: 
-2024-06-07 11:56:29,659 - INFO - Request: 127.0.0.1 POST http://localhost:5000/register
-2024-06-07 11:56:29,659 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Content-Length: 114
-Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
-Accept: application/json, text/plain, */*
-Content-Type: application/json
-Sec-Ch-Ua-Mobile: ?0
-X-Csrftoken: IjU1N2U4M2Y1YTE2OTYxMDQ2NGZmMjg0Y2ViMDY5Yzg3NzA1MDk1NmEi.ZmLZTQ.dpDCrLo5JnquuUt_vZHe7lUu0no
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Ch-Ua-Platform: "Windows"
-Origin: http://localhost:3000
-Sec-Fetch-Site: same-site
-Sec-Fetch-Mode: cors
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
-Cookie: session=eyJjc3JmX3Rva2VuIjoiNTU3ZTgzZjVhMTY5NjEwNDY0ZmYyODRjZWIwNjljODc3MDUwOTU2YSJ9.ZmLVLw.Da4-pJagB-lPrVCv0jtu7O_Jmqs
+2024-06-07 12:36:49,368 - INFO - Body: b''
+2024-06-07 12:36:49,369 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,369 - INFO - Response body: {"csrf_token":"ImNlODc1OTRiNmQxMTY3MDllYTA4ZDllMzk0NmU0NDZlZjI2N2FlOGYi.ZmLiwQ.pjZmk7NSOvf9g7c23ffNInO4Bes"}
+
+2024-06-07 12:36:49,370 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,370 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,370 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,370 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Cookie: session=eyJjc3JmX3Rva2VuIjoiY2U4NzU5NGI2ZDExNjcwOWVhMDhkOWUzOTQ2ZTQ0NmVmMjY3YWU4ZiJ9.ZmLiwQ.9GVQ7N9zkVjElCokEsHmaBF6mGU
 
 
-2024-06-07 11:56:29,659 - INFO - Body: b'{"first_name":"Mammt","last_name":"mammt","email":"mammt@mammt123.com","password":"SALUTAMAMAMMT03!_:12412341234"}'
-2024-06-07 11:56:29,872 - INFO - User registered: mammt@mammt123.com
-2024-06-07 11:56:29,872 - INFO - Response status: 201 CREATED
-2024-06-07 11:56:29,872 - INFO - Response body: {
-  "message": "User registered successfully!"
-}
+2024-06-07 12:36:49,370 - INFO - Body: b''
+2024-06-07 12:36:49,370 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,370 - INFO - Response body: {"csrf_token":"ImNlODc1OTRiNmQxMTY3MDllYTA4ZDllMzk0NmU0NDZlZjI2N2FlOGYi.ZmLiwQ.pjZmk7NSOvf9g7c23ffNInO4Bes"}
+
+2024-06-07 12:36:49,371 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,371 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,398 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,398 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+
+
+2024-06-07 12:36:49,398 - INFO - Body: b''
+2024-06-07 12:36:49,399 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,399 - INFO - Response body: {"csrf_token":"IjY4NThmODcwYmJhNjUyZjdlNjAwMTc5NzEzOTJmYWRlOTYzNTdiMDQi.ZmLiwQ.xWNpaXOCqexHWEh-3c5iBXcYV2U"}
+
+2024-06-07 12:36:49,400 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,400 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,414 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,415 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+
+
+2024-06-07 12:36:49,415 - INFO - Body: b''
+2024-06-07 12:36:49,415 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,415 - INFO - Response body: {"csrf_token":"IjIxNTgxNTg4ODFiNTY2ZjE1NzQ0YWE3ZDg5MWZlNGNlNzMwMGU0MDUi.ZmLiwQ.eG45Y7BRuvPEyZ83h8YTK18-3X8"}
+
+2024-06-07 12:36:49,416 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,416 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,429 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,429 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+
+
+2024-06-07 12:36:49,429 - INFO - Body: b''
+2024-06-07 12:36:49,429 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,430 - INFO - Response body: {"csrf_token":"IjQxYzkxNGEwZDQ3YWQ4YjdlZWMyOTk1Y2ZiMzc5NTc5NzAyYzk3MzIi.ZmLiwQ.pM-UX2DIi50RZo84TC3lFJRl-HY"}
+
+2024-06-07 12:36:49,430 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,430 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,444 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,444 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+
+
+2024-06-07 12:36:49,444 - INFO - Body: b''
+2024-06-07 12:36:49,444 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,444 - INFO - Response body: {"csrf_token":"IjFkYzJjMzZhMTI3ZGIxYjI3ODlmN2E3ODdkMjE0ODJiMWYzMGFhYzYi.ZmLiwQ.0RAMpJCqKu73kYy4NeDgTkCOgiQ"}
+
+2024-06-07 12:36:49,445 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,445 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,457 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,458 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+
+
+2024-06-07 12:36:49,458 - INFO - Body: b''
+2024-06-07 12:36:49,458 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,458 - INFO - Response body: {"csrf_token":"IjJkNDQxYzJjNWEyZGZjNTc2ZjNjMmExOGZlMWM5ZTlhMzY5NzJhMDAi.ZmLiwQ.bm159NUMP8_H1dealsDAJ47qsNA"}
+
+2024-06-07 12:36:49,459 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,459 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-07 12:36:49,471 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-07 12:36:49,472 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+
+
+2024-06-07 12:36:49,472 - INFO - Body: b''
+2024-06-07 12:36:49,472 - INFO - Response status: 200 OK
+2024-06-07 12:36:49,472 - INFO - Response body: {"csrf_token":"IjUxNGIyNzU0NjA4YmU0M2Q5MzUyMzJhNmNhMjUwMjdlMjA4ZjhlZWQi.ZmLiwQ.FQMvxJ6jThioNiyj9sem0RNlrGA"}
+
+2024-06-07 12:36:49,473 - INFO - Response status: 400 BAD REQUEST
+2024-06-07 12:36:49,473 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
 
