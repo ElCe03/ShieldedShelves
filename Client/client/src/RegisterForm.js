@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import axios from './axiosConfig';
-import zxcvbn from 'zxcvbn'; 
+import { axiosInstance5000 } from './axiosConfig';import zxcvbn from 'zxcvbn'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RegisterForm = () => {
@@ -56,7 +55,7 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/register', formData);
+      const response = await axiosInstance5000.post('/register', formData);
       setMessage(response.data.message);
     } catch (error) {
       if (error.response) {

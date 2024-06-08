@@ -5,21 +5,6 @@ import './HomePage.css';
 const HomePage = ({ onShowRegisterForm }) => {
   return (
     <div>
-      <header className="bg-dark text-white py-4">
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <h2 className="text-center">ShieldedShelves</h2>
-            </div>
-            <div className="col text-right">
-              <button onClick={onShowRegisterForm} className="btn btn-primary">Registrati</button>
-              <button onClick={onShowRegisterForm} className="btn btn-primary">Login utenti</button>
-              <button onClick={onShowRegisterForm} className="btn btn-primary">Login admin</button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <div className="container">
         <div className="row">
           <div className="col-md-8 offset-md-2 text-center">
