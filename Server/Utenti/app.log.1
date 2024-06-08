@@ -1,245 +1,181 @@
-2024-06-07 11:49:41,444 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
-Accept: application/json, text/plain, */*
-Sec-Ch-Ua-Mobile: ?0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Ch-Ua-Platform: "Windows"
-Origin: http://localhost:3000
-Sec-Fetch-Site: same-site
-Sec-Fetch-Mode: cors
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
-Cookie: session=eyJjc3JmX3Rva2VuIjoiNTU3ZTgzZjVhMTY5NjEwNDY0ZmYyODRjZWIwNjljODc3MDUwOTU2YSJ9.ZmLVLw.Da4-pJagB-lPrVCv0jtu7O_Jmqs
+2024-06-08 16:24:41,183 - WARNING - Validation error: {'last_name': ['Missing data for required field.']}
+2024-06-08 16:24:41,184 - INFO - Response status: 400 BAD REQUEST
+2024-06-08 16:24:41,184 - INFO - Response body: {"last_name":["Missing data for required field."]}
 
-
-2024-06-07 11:49:41,444 - INFO - Body: b''
-2024-06-07 11:49:41,445 - INFO - Response status: 200 OK
-2024-06-07 11:49:41,445 - INFO - Response body: {
-  "csrf_token": "IjU1N2U4M2Y1YTE2OTYxMDQ2NGZmMjg0Y2ViMDY5Yzg3NzA1MDk1NmEi.ZmLXtQ.m7gcGa-kMkBXSG50UkCu6wSGDNQ"
-}
-
-2024-06-07 11:49:41,762 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5000/register
-2024-06-07 11:49:41,763 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Accept: */*
-Access-Control-Request-Method: POST
-Access-Control-Request-Headers: content-type,x-csrftoken
-Origin: http://localhost:3000
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Fetch-Mode: cors
-Sec-Fetch-Site: same-site
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
-
-
-2024-06-07 11:49:41,763 - INFO - Body: b''
-2024-06-07 11:49:41,764 - INFO - Response status: 200 OK
-2024-06-07 11:49:41,764 - INFO - Response body: 
-2024-06-07 11:49:41,769 - INFO - Request: 127.0.0.1 POST http://localhost:5000/register
-2024-06-07 11:49:41,769 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Content-Length: 99
-Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
-Accept: application/json, text/plain, */*
-Content-Type: application/json
-Sec-Ch-Ua-Mobile: ?0
-X-Csrftoken: IjU1N2U4M2Y1YTE2OTYxMDQ2NGZmMjg0Y2ViMDY5Yzg3NzA1MDk1NmEi.ZmLXtQ.m7gcGa-kMkBXSG50UkCu6wSGDNQ
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Ch-Ua-Platform: "Windows"
-Origin: http://localhost:3000
-Sec-Fetch-Site: same-site
-Sec-Fetch-Mode: cors
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
-Cookie: session=eyJjc3JmX3Rva2VuIjoiNTU3ZTgzZjVhMTY5NjEwNDY0ZmYyODRjZWIwNjljODc3MDUwOTU2YSJ9.ZmLVLw.Da4-pJagB-lPrVCv0jtu7O_Jmqs
-
-
-2024-06-07 11:49:41,770 - INFO - Body: b'{"first_name":"mammt","last_name":"mammt","email":"mammt@mammt.com","password":"mamtm1233452345|!"}'
-2024-06-07 11:49:41,773 - INFO - Response status: 409 CONFLICT
-2024-06-07 11:49:41,773 - INFO - Response body: {
-  "message": "Email already exists"
-}
-
-2024-06-07 11:56:29,319 - INFO - Request: 127.0.0.1 GET http://localhost:5000/get_csrf_token
-2024-06-07 11:56:29,320 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
-Accept: application/json, text/plain, */*
-Sec-Ch-Ua-Mobile: ?0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Ch-Ua-Platform: "Windows"
-Origin: http://localhost:3000
-Sec-Fetch-Site: same-site
-Sec-Fetch-Mode: cors
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
-Cookie: session=eyJjc3JmX3Rva2VuIjoiNTU3ZTgzZjVhMTY5NjEwNDY0ZmYyODRjZWIwNjljODc3MDUwOTU2YSJ9.ZmLVLw.Da4-pJagB-lPrVCv0jtu7O_Jmqs
-
-
-2024-06-07 11:56:29,320 - INFO - Body: b''
-2024-06-07 11:56:29,321 - INFO - Response status: 200 OK
-2024-06-07 11:56:29,321 - INFO - Response body: {
-  "csrf_token": "IjU1N2U4M2Y1YTE2OTYxMDQ2NGZmMjg0Y2ViMDY5Yzg3NzA1MDk1NmEi.ZmLZTQ.dpDCrLo5JnquuUt_vZHe7lUu0no"
-}
-
-2024-06-07 11:56:29,649 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5000/register
-2024-06-07 11:56:29,650 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Accept: */*
-Access-Control-Request-Method: POST
-Access-Control-Request-Headers: content-type,x-csrftoken
-Origin: http://localhost:3000
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Fetch-Mode: cors
-Sec-Fetch-Site: same-site
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
-
-
-2024-06-07 11:56:29,651 - INFO - Body: b''
-2024-06-07 11:56:29,651 - INFO - Response status: 200 OK
-2024-06-07 11:56:29,652 - INFO - Response body: 
-2024-06-07 11:56:29,659 - INFO - Request: 127.0.0.1 POST http://localhost:5000/register
-2024-06-07 11:56:29,659 - INFO - Headers: Host: localhost:5000
-Connection: keep-alive
-Content-Length: 114
-Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
-Accept: application/json, text/plain, */*
-Content-Type: application/json
-Sec-Ch-Ua-Mobile: ?0
-X-Csrftoken: IjU1N2U4M2Y1YTE2OTYxMDQ2NGZmMjg0Y2ViMDY5Yzg3NzA1MDk1NmEi.ZmLZTQ.dpDCrLo5JnquuUt_vZHe7lUu0no
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
-Sec-Ch-Ua-Platform: "Windows"
-Origin: http://localhost:3000
-Sec-Fetch-Site: same-site
-Sec-Fetch-Mode: cors
-Sec-Fetch-Dest: empty
-Referer: http://localhost:3000/
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
-Cookie: session=eyJjc3JmX3Rva2VuIjoiNTU3ZTgzZjVhMTY5NjEwNDY0ZmYyODRjZWIwNjljODc3MDUwOTU2YSJ9.ZmLVLw.Da4-pJagB-lPrVCv0jtu7O_Jmqs
-
-
-2024-06-07 11:56:29,659 - INFO - Body: b'{"first_name":"Mammt","last_name":"mammt","email":"mammt@mammt123.com","password":"SALUTAMAMAMMT03!_:12412341234"}'
-2024-06-07 11:56:29,872 - INFO - User registered: mammt@mammt123.com
-2024-06-07 11:56:29,872 - INFO - Response status: 201 CREATED
-2024-06-07 11:56:29,872 - INFO - Response body: {
-  "message": "User registered successfully!"
-}
-
-2024-06-07 12:34:31,202 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,202 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,214 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,214 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,233 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,233 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,234 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,235 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,235 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,235 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,236 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,236 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,237 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,238 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,239 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,239 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,262 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,262 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,276 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,276 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,290 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,290 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,303 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,303 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,316 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,316 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:34:31,334 - INFO - Response status: 400 BAD REQUEST
-2024-06-07 12:34:31,335 - INFO - Response body: <!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
-<p>The CSRF token is missing.</p>
-
-2024-06-07 12:36:49,330 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
-2024-06-07 12:36:49,330 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+2024-06-08 16:24:41,203 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-08 16:24:41,204 - INFO - Headers: User-Agent: Werkzeug/3.0.3
 Host: localhost
 
 
-2024-06-07 12:36:49,331 - INFO - Body: b''
-2024-06-07 12:36:49,331 - INFO - Response status: 200 OK
+2024-06-08 16:24:41,204 - INFO - Body: b''
+2024-06-08 16:24:41,204 - INFO - Response status: 200 OK
+2024-06-08 16:24:41,204 - INFO - Response body: {"csrf_token":"IjI0MWIxM2FhNDk2OWU3NDc4OWJlMzY2ZjI1NmVhNjFhOGNlZjVhYjQi.ZmRpqQ.u-DTYam3-YxvXY2iCWEnLo5x9qU"}
+
+2024-06-08 16:24:41,205 - INFO - Request: 127.0.0.1 POST http://localhost/register
+2024-06-08 16:24:41,205 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Content-Type: application/json
+Content-Length: 99
+X-Csrftoken: IjI0MWIxM2FhNDk2OWU3NDc4OWJlMzY2ZjI1NmVhNjFhOGNlZjVhYjQi.ZmRpqQ.u-DTYam3-YxvXY2iCWEnLo5x9qU
+Cookie: session=eyJjc3JmX3Rva2VuIjoiMjQxYjEzYWE0OTY5ZTc0Nzg5YmUzNjZmMjU2ZWE2MWE4Y2VmNWFiNCJ9.ZmRpqQ.1CTKLjzOtmOdHJQOIhZvhyr4_R8
+
+
+2024-06-08 16:24:41,205 - INFO - Body: b'{"first_name": "John", "last_name": "Doe", "email": "john0@example.com", "password": "password123"}'
+2024-06-08 16:24:41,476 - INFO - User registered: john0@example.com
+2024-06-08 16:24:41,476 - INFO - Response status: 201 CREATED
+2024-06-08 16:24:41,476 - INFO - Response body: {"message":"User registered successfully!"}
+
+2024-06-08 16:24:41,501 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-08 16:24:41,501 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+
+
+2024-06-08 16:24:41,502 - INFO - Body: b''
+2024-06-08 16:24:41,502 - INFO - Response status: 200 OK
+2024-06-08 16:24:41,502 - INFO - Response body: {"csrf_token":"ImYzYWNmZTU0M2E4OGE0YzNlMmVhZDFiZDI0NDczY2NmMmFiNTRhZWUi.ZmRpqQ.H5Mp-HrodsH06M5fH896RQxrrDs"}
+
+2024-06-08 16:24:41,504 - INFO - Request: 127.0.0.1 POST http://localhost/register
+2024-06-08 16:24:41,504 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Content-Type: application/json
+Content-Length: 94
+X-Csrftoken: ImYzYWNmZTU0M2E4OGE0YzNlMmVhZDFiZDI0NDczY2NmMmFiNTRhZWUi.ZmRpqQ.H5Mp-HrodsH06M5fH896RQxrrDs
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZjNhY2ZlNTQzYTg4YTRjM2UyZWFkMWJkMjQ0NzNjY2YyYWI1NGFlZSJ9.ZmRpqQ.Ajtp8sy7F2-ZjIj4PO7hH2aChCc
+
+
+2024-06-08 16:24:41,504 - INFO - Body: b'{"first_name": "John", "last_name": "Doe", "email": "not-an-email", "password": "password123"}'
+2024-06-08 16:24:41,505 - WARNING - Validation error: {'email': ['Not a valid email address.', 'Not a valid email address.']}
+2024-06-08 16:24:41,505 - INFO - Response status: 400 BAD REQUEST
+2024-06-08 16:24:41,505 - INFO - Response body: {"email":["Not a valid email address.","Not a valid email address."]}
+
+2024-06-08 16:24:41,528 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-08 16:24:41,529 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+
+
+2024-06-08 16:24:41,529 - INFO - Body: b''
+2024-06-08 16:24:41,529 - INFO - Response status: 200 OK
+2024-06-08 16:24:41,529 - INFO - Response body: {"csrf_token":"Ijg4OTdmZDM2ZTkxYWQ0OTFjMzZjYTFjYTY3Y2FkZjk4Y2Y3NWIxNzki.ZmRpqQ.D-1oMkxd4BOI1DgsgBF2qmSlRTw"}
+
+2024-06-08 16:24:41,531 - INFO - Request: 127.0.0.1 POST http://localhost/register
+2024-06-08 16:24:41,531 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Content-Type: application/json
+Content-Length: 91
+X-Csrftoken: Ijg4OTdmZDM2ZTkxYWQ0OTFjMzZjYTFjYTY3Y2FkZjk4Y2Y3NWIxNzki.ZmRpqQ.D-1oMkxd4BOI1DgsgBF2qmSlRTw
+Cookie: session=eyJjc3JmX3Rva2VuIjoiODg5N2ZkMzZlOTFhZDQ5MWMzNmNhMWNhNjdjYWRmOThjZjc1YjE3OSJ9.ZmRpqQ.i9mIcSHxy_ffi8HmkF7z2gEz2Xs
+
+
+2024-06-08 16:24:41,531 - INFO - Body: b'{"first_name": "John", "last_name": "Doe", "email": "john7@example.com", "password": "123"}'
+2024-06-08 16:24:41,532 - WARNING - Validation error: {'password': ['Shorter than minimum length 8.']}
+2024-06-08 16:24:41,532 - INFO - Response status: 400 BAD REQUEST
+2024-06-08 16:24:41,532 - INFO - Response body: {"password":["Shorter than minimum length 8."]}
+
+2024-06-08 16:26:31,148 - INFO - Response status: 400 BAD REQUEST
+2024-06-08 16:26:31,148 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>400 Bad Request</title>
+<h1>Bad Request</h1>
+<p>The CSRF token is missing.</p>
+
+2024-06-08 16:26:31,175 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-08 16:26:31,175 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+
+
+2024-06-08 16:26:31,175 - INFO - Body: b''
+2024-06-08 16:26:31,176 - INFO - Response status: 200 OK
+2024-06-08 16:26:31,176 - INFO - Response body: {"csrf_token":"ImEzODAyZWMwYjRmNzA3MDY2ZWMzZDBhYTU2NTEwYWFhMzZlY2YwMjEi.ZmRqFw.igjhoR7thX2axjj1dpAQH3-jPmU"}
+
+2024-06-08 16:26:31,177 - INFO - Request: 127.0.0.1 POST http://localhost/register
+2024-06-08 16:26:31,177 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Content-Type: application/json
+Content-Length: 99
+X-Csrftoken: ImEzODAyZWMwYjRmNzA3MDY2ZWMzZDBhYTU2NTEwYWFhMzZlY2YwMjEi.ZmRqFw.igjhoR7thX2axjj1dpAQH3-jPmU
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYTM4MDJlYzBiNGY3MDcwNjZlYzNkMGFhNTY1MTBhYWEzNmVjZjAyMSJ9.ZmRqFw.AkOXvvjX4vtPQOoGcNwef4atthU
+
+
+2024-06-08 16:26:31,177 - INFO - Body: b'{"first_name": "John", "last_name": "Doe", "email": "john0@example.com", "password": "password123"}'
+2024-06-08 16:26:31,443 - INFO - User registered: john0@example.com
+2024-06-08 16:26:31,444 - INFO - Response status: 201 CREATED
+2024-06-08 16:26:31,444 - INFO - Response body: {"message":"User registered successfully!"}
+
+2024-06-08 16:26:31,448 - INFO - Request: 127.0.0.1 POST http://localhost/register
+2024-06-08 16:26:31,448 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Content-Type: application/json
+Content-Length: 99
+X-Csrftoken: ImEzODAyZWMwYjRmNzA3MDY2ZWMzZDBhYTU2NTEwYWFhMzZlY2YwMjEi.ZmRqFw.igjhoR7thX2axjj1dpAQH3-jPmU
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYTM4MDJlYzBiNGY3MDcwNjZlYzNkMGFhNTY1MTBhYWEzNmVjZjAyMSJ9.ZmRqFw.AkOXvvjX4vtPQOoGcNwef4atthU
+
+
+2024-06-08 16:26:31,449 - INFO - Body: b'{"first_name": "John", "last_name": "Doe", "email": "john1@example.com", "password": "password123"}'
+2024-06-08 16:26:31,735 - INFO - User registered: john1@example.com
+2024-06-08 16:26:31,736 - INFO - Response status: 201 CREATED
+2024-06-08 16:26:31,737 - INFO - Response body: {"message":"User registered successfully!"}
+
+2024-06-08 16:26:31,739 - INFO - Request: 127.0.0.1 POST http://localhost/register
+2024-06-08 16:26:31,739 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Content-Type: application/json
+Content-Length: 99
+X-Csrftoken: ImEzODAyZWMwYjRmNzA3MDY2ZWMzZDBhYTU2NTEwYWFhMzZlY2YwMjEi.ZmRqFw.igjhoR7thX2axjj1dpAQH3-jPmU
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYTM4MDJlYzBiNGY3MDcwNjZlYzNkMGFhNTY1MTBhYWEzNmVjZjAyMSJ9.ZmRqFw.AkOXvvjX4vtPQOoGcNwef4atthU
+
+
+2024-06-08 16:26:31,740 - INFO - Body: b'{"first_name": "John", "last_name": "Doe", "email": "john2@example.com", "password": "password123"}'
+2024-06-08 16:26:32,088 - INFO - User registered: john2@example.com
+2024-06-08 16:26:32,089 - INFO - Response status: 201 CREATED
+2024-06-08 16:26:32,089 - INFO - Response body: {"message":"User registered successfully!"}
+
+2024-06-08 16:26:32,090 - INFO - Request: 127.0.0.1 POST http://localhost/register
+2024-06-08 16:26:32,090 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Content-Type: application/json
+Content-Length: 99
+X-Csrftoken: ImEzODAyZWMwYjRmNzA3MDY2ZWMzZDBhYTU2NTEwYWFhMzZlY2YwMjEi.ZmRqFw.igjhoR7thX2axjj1dpAQH3-jPmU
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYTM4MDJlYzBiNGY3MDcwNjZlYzNkMGFhNTY1MTBhYWEzNmVjZjAyMSJ9.ZmRqFw.AkOXvvjX4vtPQOoGcNwef4atthU
+
+
+2024-06-08 16:26:32,091 - INFO - Body: b'{"first_name": "John", "last_name": "Doe", "email": "john3@example.com", "password": "password123"}'
+2024-06-08 16:26:32,395 - INFO - User registered: john3@example.com
+2024-06-08 16:26:32,396 - INFO - Response status: 201 CREATED
+2024-06-08 16:26:32,397 - INFO - Response body: {"message":"User registered successfully!"}
+
+2024-06-08 16:26:32,399 - INFO - Request: 127.0.0.1 POST http://localhost/register
+2024-06-08 16:26:32,399 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Content-Type: application/json
+Content-Length: 99
+X-Csrftoken: ImEzODAyZWMwYjRmNzA3MDY2ZWMzZDBhYTU2NTEwYWFhMzZlY2YwMjEi.ZmRqFw.igjhoR7thX2axjj1dpAQH3-jPmU
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYTM4MDJlYzBiNGY3MDcwNjZlYzNkMGFhNTY1MTBhYWEzNmVjZjAyMSJ9.ZmRqFw.AkOXvvjX4vtPQOoGcNwef4atthU
+
+
+2024-06-08 16:26:32,399 - INFO - Body: b'{"first_name": "John", "last_name": "Doe", "email": "john4@example.com", "password": "password123"}'
+2024-06-08 16:26:32,686 - INFO - User registered: john4@example.com
+2024-06-08 16:26:32,687 - INFO - Response status: 201 CREATED
+2024-06-08 16:26:32,687 - INFO - Response body: {"message":"User registered successfully!"}
+
+2024-06-08 16:26:32,689 - INFO - Request: 127.0.0.1 POST http://localhost/register
+2024-06-08 16:26:32,690 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+Content-Type: application/json
+Content-Length: 99
+X-Csrftoken: ImEzODAyZWMwYjRmNzA3MDY2ZWMzZDBhYTU2NTEwYWFhMzZlY2YwMjEi.ZmRqFw.igjhoR7thX2axjj1dpAQH3-jPmU
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYTM4MDJlYzBiNGY3MDcwNjZlYzNkMGFhNTY1MTBhYWEzNmVjZjAyMSJ9.ZmRqFw.AkOXvvjX4vtPQOoGcNwef4atthU
+
+
+2024-06-08 16:26:32,690 - INFO - Body: b'{"first_name": "John", "last_name": "Doe", "email": "john6@example.com", "password": "password123"}'
+2024-06-08 16:26:32,691 - INFO - Response status: 429 TOO MANY REQUESTS
+2024-06-08 16:26:32,692 - INFO - Response body: <!doctype html>
+<html lang=en>
+<title>429 Too Many Requests</title>
+<h1>Too Many Requests</h1>
+<p>5 per 1 minute</p>
+
+2024-06-08 16:26:32,731 - INFO - Request: 127.0.0.1 GET http://localhost/get_csrf_token
+2024-06-08 16:26:32,731 - INFO - Headers: User-Agent: Werkzeug/3.0.3
+Host: localhost
+
+
