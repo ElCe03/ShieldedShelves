@@ -1,0 +1,211 @@
+2024-06-09 21:31:31,104 - INFO - Request: 127.0.0.1 GET http://localhost:5001/get_csrf_token
+2024-06-09 21:31:31,104 - INFO - Headers: Host: localhost:5001
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYmRlNzAwMDhkNGVlMDVlMmE2NTQwOWQ1MmRjN2E3ZWE5ODMyYjQ0NyJ9.ZmX_cw.VHrvkRGwYpXLyiBzMZc3KAHMrQ8
+
+
+2024-06-09 21:31:31,104 - INFO - Body: b''
+2024-06-09 21:31:31,105 - INFO - Response status: 200 OK
+2024-06-09 21:31:31,105 - INFO - Response body: {
+  "csrf_token": "ImJkZTcwMDA4ZDRlZTA1ZTJhNjU0MDlkNTJkYzdhN2VhOTgzMmI0NDci.ZmYDEw.veFzd30931RkWd_eU9WHHsE9Ki4"
+}
+
+2024-06-09 21:31:31,420 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5001/login
+2024-06-09 21:31:31,421 - INFO - Headers: Host: localhost:5001
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrftoken
+Origin: http://localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-09 21:31:31,421 - INFO - Body: b''
+2024-06-09 21:31:31,421 - INFO - Response status: 200 OK
+2024-06-09 21:31:31,422 - INFO - Response body: 
+2024-06-09 21:31:31,427 - INFO - Request: 127.0.0.1 POST http://localhost:5001/login
+2024-06-09 21:31:31,428 - INFO - Headers: Host: localhost:5001
+Connection: keep-alive
+Content-Length: 59
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Sec-Ch-Ua-Mobile: ?0
+X-Csrftoken: ImJkZTcwMDA4ZDRlZTA1ZTJhNjU0MDlkNTJkYzdhN2VhOTgzMmI0NDci.ZmYDEw.veFzd30931RkWd_eU9WHHsE9Ki4
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYmRlNzAwMDhkNGVlMDVlMmE2NTQwOWQ1MmRjN2E3ZWE5ODMyYjQ0NyJ9.ZmX_cw.VHrvkRGwYpXLyiBzMZc3KAHMrQ8
+
+
+2024-06-09 21:31:31,428 - INFO - Body: b'{"email":"lucacris2003@gmail.com","password":"Mammt03_123"}'
+2024-06-09 21:31:31,656 - INFO - Response status: 401 UNAUTHORIZED
+2024-06-09 21:31:31,656 - INFO - Response body: {
+  "message": "Invalid credentials"
+}
+
+2024-06-09 21:32:52,922 - INFO - Request: 127.0.0.1 GET http://localhost:5001/get_csrf_token
+2024-06-09 21:32:52,922 - INFO - Headers: Host: localhost:5001
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYmRlNzAwMDhkNGVlMDVlMmE2NTQwOWQ1MmRjN2E3ZWE5ODMyYjQ0NyJ9.ZmX_cw.VHrvkRGwYpXLyiBzMZc3KAHMrQ8
+
+
+2024-06-09 21:32:52,923 - INFO - Body: b''
+2024-06-09 21:32:52,923 - INFO - Response status: 200 OK
+2024-06-09 21:32:52,923 - INFO - Response body: {
+  "csrf_token": "ImJkZTcwMDA4ZDRlZTA1ZTJhNjU0MDlkNTJkYzdhN2VhOTgzMmI0NDci.ZmYDZA.J_W5X6Mza2Jtzj4xPV58q5p1f9g"
+}
+
+2024-06-09 21:32:53,249 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5001/login
+2024-06-09 21:32:53,249 - INFO - Headers: Host: localhost:5001
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrftoken
+Origin: http://localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-09 21:32:53,250 - INFO - Body: b''
+2024-06-09 21:32:53,251 - INFO - Response status: 200 OK
+2024-06-09 21:32:53,251 - INFO - Response body: 
+2024-06-09 21:32:53,256 - INFO - Request: 127.0.0.1 POST http://localhost:5001/login
+2024-06-09 21:32:53,256 - INFO - Headers: Host: localhost:5001
+Connection: keep-alive
+Content-Length: 50
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Sec-Ch-Ua-Mobile: ?0
+X-Csrftoken: ImJkZTcwMDA4ZDRlZTA1ZTJhNjU0MDlkNTJkYzdhN2VhOTgzMmI0NDci.ZmYDZA.J_W5X6Mza2Jtzj4xPV58q5p1f9g
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYmRlNzAwMDhkNGVlMDVlMmE2NTQwOWQ1MmRjN2E3ZWE5ODMyYjQ0NyJ9.ZmX_cw.VHrvkRGwYpXLyiBzMZc3KAHMrQ8
+
+
+2024-06-09 21:32:53,256 - INFO - Body: b'{"email":"mammt@mammt.com","password":"ABCD1234!"}'
+2024-06-09 21:32:53,448 - INFO - Response status: 401 UNAUTHORIZED
+2024-06-09 21:32:53,448 - INFO - Response body: {
+  "message": "Invalid credentials"
+}
+
+2024-06-09 21:33:02,874 - INFO - Request: 127.0.0.1 GET http://localhost:5001/get_csrf_token
+2024-06-09 21:33:02,874 - INFO - Headers: Host: localhost:5001
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYmRlNzAwMDhkNGVlMDVlMmE2NTQwOWQ1MmRjN2E3ZWE5ODMyYjQ0NyJ9.ZmX_cw.VHrvkRGwYpXLyiBzMZc3KAHMrQ8
+
+
+2024-06-09 21:33:02,875 - INFO - Body: b''
+2024-06-09 21:33:02,875 - INFO - Response status: 200 OK
+2024-06-09 21:33:02,875 - INFO - Response body: {
+  "csrf_token": "ImJkZTcwMDA4ZDRlZTA1ZTJhNjU0MDlkNTJkYzdhN2VhOTgzMmI0NDci.ZmYDbg.M9rWogQQLOEa4zzU_Pg1dc3N-TA"
+}
+
+2024-06-09 21:33:02,882 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5001/login
+2024-06-09 21:33:02,882 - INFO - Headers: Host: localhost:5001
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrftoken
+Origin: http://localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-09 21:33:02,882 - INFO - Body: b''
+2024-06-09 21:33:02,883 - INFO - Response status: 200 OK
+2024-06-09 21:33:02,883 - INFO - Response body: 
+2024-06-09 21:33:03,137 - INFO - Request: 127.0.0.1 POST http://localhost:5001/login
+2024-06-09 21:33:03,137 - INFO - Headers: Host: localhost:5001
+Connection: keep-alive
+Content-Length: 49
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Sec-Ch-Ua-Mobile: ?0
+X-Csrftoken: ImJkZTcwMDA4ZDRlZTA1ZTJhNjU0MDlkNTJkYzdhN2VhOTgzMmI0NDci.ZmYDbg.M9rWogQQLOEa4zzU_Pg1dc3N-TA
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiYmRlNzAwMDhkNGVlMDVlMmE2NTQwOWQ1MmRjN2E3ZWE5ODMyYjQ0NyJ9.ZmX_cw.VHrvkRGwYpXLyiBzMZc3KAHMrQ8
+
+
+2024-06-09 21:33:03,138 - INFO - Body: b'{"email":"mammt@mammt.com","password":"1234ABCD"}'
+2024-06-09 21:33:03,337 - INFO - Response status: 401 UNAUTHORIZED
+2024-06-09 21:33:03,337 - INFO - Response body: {
+  "message": "Invalid credentials"
+}
+
+2024-06-09 21:33:23,483 - INFO - Request: 127.0.0.1 GET http://localhost:5001/get_csrf_token

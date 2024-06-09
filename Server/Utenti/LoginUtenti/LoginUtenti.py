@@ -1,38 +1,44 @@
-from flask import Flask, request, jsonify, session, redirect, url_for
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from marshmallow import Schema, fields, validate, ValidationError
-from sqlalchemy.exc import IntegrityError
-import logging
-from logging.handlers import RotatingFileHandler
-from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from datetime import timedelta
+from flask_wtf import CSRFProtect
 from flask_cors import CORS
+from marshmallow import Schema, fields, validate, ValidationError
+import logging
+from logging.handlers import RotatingFileHandler
+from redis import Redis
+from flask_wtf.csrf import generate_csrf
+import os
+
+DB_USER = os.environ.get('DB_USER')
+DB_PASSWORD = os.environ.get('DB_PASSWORD')
+DB_HOST = os.environ.get('DB_HOST')
+DB_NAME = os.environ.get('DB_NAME')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+if not all([DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, SECRET_KEY]):
+    raise ValueError("Environmental variables are not properly set")
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'PSS2024!'
-app.config['WTF_CSRF_TIME_LIMIT'] = timedelta(minutes=15)
-app.config['SESSION_COOKIE_HTTPONLY'] = True 
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)  
-app.config['REMEMBER_COOKIE_HTTPONLY'] = True 
-app.config['REMEMBER_COOKIE_DURATION'] = timedelta(days=30)  
-app.config['SESSION_COOKIE_SAMESITE'] = 'Strict'  
+app.config['SECRET_KEY'] = SECRET_KEY
+app.config['WTF_CSRF_CHECK_DEFAULT'] = True
+CORS(app, supports_credentials=True)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
-csrf = CSRFProtect(app)
-csrf.init_app(app)
-CORS(app,supports_credentials=True)
+redis_store = Redis(host='localhost', port=6379)
 limiter = Limiter(
     app,
     key_func=get_remote_address,
-    default_limits=["5 per minute", "20 per hour"]
+    storage_uri="redis://localhost:6379"
 )
+csrf = CSRFProtect(app)
+csrf.init_app(app)
 
-handler = RotatingFileHandler('login_app.log', maxBytes=10000, backupCount=1)
+handler = RotatingFileHandler('login_service.log', maxBytes=10000, backupCount=1)
 handler.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
@@ -46,11 +52,11 @@ class User(db.Model):
     email = db.Column(db.String(150), unique=True, nullable=False)
     password_hash = db.Column(db.String(256), nullable=False)
 
-class UserSchema(Schema):
+class LoginSchema(Schema):
     email = fields.Email(required=True, validate=validate.Email())
     password = fields.Str(required=True, validate=validate.Length(min=8))
 
-user_schema = UserSchema()
+login_schema = LoginSchema()
 
 @app.before_request
 def log_request_info():
@@ -71,6 +77,8 @@ def login():
         data = request.get_json()
         assert data is not None, "No data provided"
         
+        login_schema.load(data)
+        
         email = data.get('email')
         password = data.get('password')
         
@@ -78,18 +86,19 @@ def login():
         assert password is not None, "Password is missing"
         
         user = User.query.filter_by(email=email).first()
-        if not user:
-            return jsonify(message="User does not exist"), 404
+        if user is None:
+            return jsonify(message="User not found"), 404
         
         if not bcrypt.check_password_hash(user.password_hash, password):
-            app.logger.warning('Login attempt failed for user: %s', email)
-            return jsonify(message="Incorrect email or password"), 401
+            return jsonify(message="Invalid credentials"), 401
         
-        session.permanent = True
-        session['user_id'] = user.id
+        token = f"token-{user.id}"
         
         app.logger.info('User logged in: %s', email)
-        return jsonify(message="Login successful!"), 200
+        return jsonify(message="Login successful", token=token), 200
+    except ValidationError as err:
+        app.logger.warning('Validation error: %s', err.messages)
+        return jsonify(err.messages), 400
     except AssertionError as e:
         app.logger.warning('Assertion error: %s', e)
         return jsonify(message=str(e)), 400
@@ -97,15 +106,10 @@ def login():
         app.logger.error('Error logging in user: %s', e)
         return jsonify(message="Error: " + str(e)), 500
 
-@app.route('/logout', methods=['POST'])
-def logout():
-    session.pop('user_id', None)
-    return jsonify(message="Logged out successfully"), 200
-
 @app.route('/get_csrf_token', methods=['GET'])
 def get_csrf_token():
     token = generate_csrf()
     return jsonify({'csrf_token': token})
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=True,port=5001)

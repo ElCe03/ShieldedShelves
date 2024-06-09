@@ -1,0 +1,207 @@
+2024-06-09 18:23:07,862 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZThjNjBiOWE5Nzc5NmI1ZTFkMWNiOGZjNTU1ZDUwNzZmNzdiM2IzMiJ9.ZmXJoA.TsTbEd3QDcd6J04bAyL13OQJZWQ
+
+
+2024-06-09 18:23:07,863 - INFO - Body: b''
+2024-06-09 18:23:07,865 - INFO - Response status: 200 OK
+2024-06-09 18:23:07,865 - INFO - Response body: {
+  "csrf_token": "ImU4YzYwYjlhOTc3OTZiNWUxZDFjYjhmYzU1NWQ1MDc2Zjc3YjNiMzIi.ZmXW6w.AanMSbTv_6dlVpfj3vb2Ub1vWZY"
+}
+
+2024-06-09 18:23:08,184 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5000/register
+2024-06-09 18:23:08,184 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrftoken
+Origin: http://localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-09 18:23:08,185 - INFO - Body: b''
+2024-06-09 18:23:08,186 - INFO - Response status: 200 OK
+2024-06-09 18:23:08,186 - INFO - Response body: 
+2024-06-09 18:23:08,192 - INFO - Request: 127.0.0.1 POST http://localhost:5000/register
+2024-06-09 18:23:08,193 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Content-Length: 105
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Sec-Ch-Ua-Mobile: ?0
+X-Csrftoken: ImU4YzYwYjlhOTc3OTZiNWUxZDFjYjhmYzU1NWQ1MDc2Zjc3YjNiMzIi.ZmXW6w.AanMSbTv_6dlVpfj3vb2Ub1vWZY
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZThjNjBiOWE5Nzc5NmI1ZTFkMWNiOGZjNTU1ZDUwNzZmNzdiM2IzMiJ9.ZmXJoA.TsTbEd3QDcd6J04bAyL13OQJZWQ
+
+
+2024-06-09 18:23:08,193 - INFO - Body: b'{"first_name":"Luca","last_name":"Criscuolo","email":"lucacris2003@gmail.com","password":"Mammt03_!23\\\\"}'
+2024-06-09 18:23:08,224 - ERROR - Error registering user: (MySQLdb._exceptions.ProgrammingError) (1146, "Table 'utenti.user' doesn't exist")
+[SQL: SELECT user.id AS user_id, user.first_name AS user_first_name, user.last_name AS user_last_name, user.email AS user_email, user.password_hash AS user_password_hash 
+FROM user 
+WHERE user.email = %s 
+ LIMIT %s]
+[parameters: ('lucacris2003@gmail.com', 1)]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2024-06-09 18:23:08,225 - INFO - Response status: 500 INTERNAL SERVER ERROR
+2024-06-09 18:23:08,225 - INFO - Response body: {
+  "message": "Error: (MySQLdb._exceptions.ProgrammingError) (1146, \"Table 'utenti.user' doesn't exist\")\n[SQL: SELECT user.id AS user_id, user.first_name AS user_first_name, user.last_name AS user_last_name, user.email AS user_email, user.password_hash AS user_password_hash \nFROM user \nWHERE user.email = %s \n LIMIT %s]\n[parameters: ('lucacris2003@gmail.com', 1)]\n(Background on this error at: https://sqlalche.me/e/14/f405)"
+}
+
+2024-06-09 18:26:07,166 - INFO - Request: 127.0.0.1 GET http://localhost:5000/get_csrf_token
+2024-06-09 18:26:07,166 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZThjNjBiOWE5Nzc5NmI1ZTFkMWNiOGZjNTU1ZDUwNzZmNzdiM2IzMiJ9.ZmXJoA.TsTbEd3QDcd6J04bAyL13OQJZWQ
+
+
+2024-06-09 18:26:07,167 - INFO - Body: b''
+2024-06-09 18:26:07,168 - INFO - Response status: 200 OK
+2024-06-09 18:26:07,168 - INFO - Response body: {
+  "csrf_token": "ImU4YzYwYjlhOTc3OTZiNWUxZDFjYjhmYzU1NWQ1MDc2Zjc3YjNiMzIi.ZmXXnw.ecZBq_IM44ZAVFC3XAbxX23KFv8"
+}
+
+2024-06-09 18:26:07,482 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5000/register
+2024-06-09 18:26:07,482 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrftoken
+Origin: http://localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-09 18:26:07,483 - INFO - Body: b''
+2024-06-09 18:26:07,483 - INFO - Response status: 200 OK
+2024-06-09 18:26:07,483 - INFO - Response body: 
+2024-06-09 18:26:07,487 - INFO - Request: 127.0.0.1 POST http://localhost:5000/register
+2024-06-09 18:26:07,487 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Content-Length: 103
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Sec-Ch-Ua-Mobile: ?0
+X-Csrftoken: ImU4YzYwYjlhOTc3OTZiNWUxZDFjYjhmYzU1NWQ1MDc2Zjc3YjNiMzIi.ZmXXnw.ecZBq_IM44ZAVFC3XAbxX23KFv8
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZThjNjBiOWE5Nzc5NmI1ZTFkMWNiOGZjNTU1ZDUwNzZmNzdiM2IzMiJ9.ZmXJoA.TsTbEd3QDcd6J04bAyL13OQJZWQ
+
+
+2024-06-09 18:26:07,487 - INFO - Body: b'{"first_name":"Luca","last_name":"Criscuolo","email":"lucacris2003@gmail.com","password":"Mammt03:123"}'
+2024-06-09 18:26:07,798 - INFO - User registered: lucacris2003@gmail.com
+2024-06-09 18:26:07,799 - INFO - Response status: 201 CREATED
+2024-06-09 18:26:07,799 - INFO - Response body: {
+  "message": "User registered successfully!"
+}
+
+2024-06-09 21:11:44,827 - INFO - Request: 127.0.0.1 GET http://localhost:5000/get_csrf_token
+2024-06-09 21:11:44,828 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZjFmNTIxNzg3NjdjMDFlOTJhYWI0ZDFjNmNmMGYzYTNkNzRjMmQzZSJ9.ZmX-Eg.u4EgMgsh9At7tzSm62iVGjfdmQs
+
+
+2024-06-09 21:11:44,829 - INFO - Body: b''
+2024-06-09 21:16:03,757 - INFO - Request: 127.0.0.1 GET http://localhost:5000/get_csrf_token
+2024-06-09 21:16:03,758 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZjFmNTIxNzg3NjdjMDFlOTJhYWI0ZDFjNmNmMGYzYTNkNzRjMmQzZSJ9.ZmX-Eg.u4EgMgsh9At7tzSm62iVGjfdmQs
+
+
+2024-06-09 21:16:03,759 - INFO - Body: b''
+2024-06-09 21:16:03,759 - INFO - Response status: 200 OK
+2024-06-09 21:16:03,759 - INFO - Response body: {
+  "csrf_token": "ImJkZTcwMDA4ZDRlZTA1ZTJhNjU0MDlkNTJkYzdhN2VhOTgzMmI0NDci.ZmX_cw.VbMayozM8Pdoh8nKv3-DunXjPk8"
+}
+
+2024-06-09 21:16:04,083 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5000/register
+2024-06-09 21:16:04,084 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrftoken
+Origin: http://localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-09 21:16:04,084 - INFO - Body: b''

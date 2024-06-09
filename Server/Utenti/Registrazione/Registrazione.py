@@ -9,26 +9,33 @@ from marshmallow import Schema, fields, validate, ValidationError
 import logging
 from logging.handlers import RotatingFileHandler
 from redis import Redis
-from datetime import datetime
-from flask import request
 from flask_wtf.csrf import generate_csrf
+import os
 
+DB_USER = os.environ.get('DB_USER')
+DB_PASSWORD = os.environ.get('DB_PASSWORD')
+DB_HOST = os.environ.get('DB_HOST')
+DB_NAME = os.environ.get('DB_NAME')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+if not all([DB_USER, DB_PASSWORD, DB_HOST, DB_NAME]):
+        raise ValueError("variabili d'ambiente non configurate correttamente")
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'PSS2024!'
-app.config['WTF_CSRF_CHECK_DEFAULT'] = True  
-CORS(app,supports_credentials=True)
+app.config['SECRET_KEY'] = {SECRET_KEY}
+app.config['WTF_CSRF_CHECK_DEFAULT'] = True
+CORS(app, supports_credentials=True)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 redis_store = Redis(host='localhost', port=6379)
 limiter = Limiter(
-    get_remote_address,
-    app=app,
+    app,
+    key_func=get_remote_address,
     storage_uri="redis://localhost:6379"
 )
-csrf= CSRFProtect(app)
+csrf = CSRFProtect(app)
 csrf.init_app(app)
 
 handler = RotatingFileHandler('app.log', maxBytes=10000, backupCount=1)
@@ -46,8 +53,8 @@ class User(db.Model):
     password_hash = db.Column(db.String(256), nullable=False)
 
 class UserSchema(Schema):
-    first_name = fields.Str(required=True, validate=validate.Length(min=1))
-    last_name = fields.Str(required=True, validate=validate.Length(min=1))
+    first_name = fields.Str(required=True, validate=validate.Length(min=3))
+    last_name = fields.Str(required=True, validate=validate.Length(min=3))
     email = fields.Email(required=True, validate=validate.Email())
     password = fields.Str(required=True, validate=validate.Length(min=8))
 
@@ -106,13 +113,10 @@ def register():
         app.logger.error('Error registering user: %s', e)
         return jsonify(message="Error: " + str(e)), 500
 
-
 @app.route('/get_csrf_token', methods=['GET'])
 def get_csrf_token():
     token = generate_csrf()
     return jsonify({'csrf_token': token})
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)

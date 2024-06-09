@@ -1,0 +1,18 @@
+2024-06-09 21:10:10,906 - INFO - Headers: Host: localhost:5001
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrftoken
+Origin: http://localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-09 21:10:10,907 - INFO - Body: b''
+2024-06-09 21:10:10,907 - INFO - Response status: 200 OK
+2024-06-09 21:10:10,907 - INFO - Response body: 
