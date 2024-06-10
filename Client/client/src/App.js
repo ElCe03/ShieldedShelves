@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import RegisterForm from './RegisterForm';
 import LoginForm from './LoginForm';
 import HomePage from './HomePage';
+import LoggedIn from './LoggedIn'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; 
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Button, Nav, Navbar, Container } from 'react-bootstrap';
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -19,24 +22,33 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <Link to="/" className="navbar-brand">ShieldedShelves</Link>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to="/register" className="nav-link">Register</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/login" className="nav-link">Login</Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <Navbar bg="dark" variant="dark" expand="lg">
+          <Container>
+            <Navbar.Brand as={Link} to="/">ShieldedShelves</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ml-auto">
+                {isLoggedIn ? (
+                  <>
+                    <Nav.Link as={Link} to="/logged">LoggedIn</Nav.Link>
+                    <Button onClick={handleLogout} className="nav-link btn btn-link">Logout</Button>
+                  </>
+                ) : (
+                  <>
+                    <Nav.Link as={Link} to="/register">Register</Nav.Link>
+                    <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                  </>
+                )}
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
 
-        <Routes> 
-          <Route path="/register" element={<RegisterForm />} /> 
-          <Route path="/login" element={<LoginForm onLogin={handleLogin} />} /> 
-          <Route path="/" element={<HomePage />} exact /> 
+        <Routes>
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
+          <Route path="/logged" element={isLoggedIn ? <LoggedIn /> : <HomePage isAuthenticated={isLoggedIn} />} />
+          <Route path="/" element={<HomePage isAuthenticated={isLoggedIn} />} />
         </Routes>
       </div>
     </Router>

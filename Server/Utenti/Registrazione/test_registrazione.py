@@ -4,7 +4,7 @@ from flask import Flask
 from Registrazione import app, db, User
 from unittest.mock import patch
 
-class FlaskTestCase(unittest.TestCase):
+class RegistrazioneTestCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):

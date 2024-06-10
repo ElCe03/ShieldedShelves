@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { axiosInstance5001 } from './axiosConfig';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 
 const LoginForm = ({ onLogin }) => {
   const [formData, setFormData] = useState({
@@ -8,6 +8,19 @@ const LoginForm = ({ onLogin }) => {
     password: ''
   });
   const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    const fetchCsrfToken = async () => {
+      try {
+        const response = await axiosInstance5001.get('/get_csrf_token');
+        axiosInstance5001.defaults.headers.post['X-CSRF-Token'] = response.data.csrf_token;
+      } catch (error) {
+        console.error('Error fetching CSRF token:', error);
+      }
+    };
+
+    fetchCsrfToken();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -21,8 +34,9 @@ const LoginForm = ({ onLogin }) => {
     try {
       const response = await axiosInstance5001.post('/login', formData);
       setMessage(response.data.message);
-      onLogin();
-      console.log('Login successful'); 
+      if (response.status === 200) {
+        onLogin();
+      }
     } catch (error) {
       if (error.response) {
         setMessage(error.response.data.message || 'Login failed');
@@ -33,25 +47,25 @@ const LoginForm = ({ onLogin }) => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3">
+    <Container>
+      <Row className="justify-content-md-center">
+        <Col md={6}>
           <h1 className="text-center mb-4">Login</h1>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>Email:</label>
-              <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control" required />
-            </div>
-            <div className="form-group">
-              <label>Password:</label>
-              <input type="password" name="password" value={formData.password} onChange={handleChange} className="form-control" required />
-            </div>
-            <button type="submit" className="btn btn-primary btn-block">Login</button>
-          </form>
-          {message && <p className="mt-3 text-center">{message}</p>}
-        </div>
-      </div>
-    </div>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} required />
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} required />
+            </Form.Group>
+            <Button variant="primary" type="submit" block>Login</Button>
+          </Form>
+          {message && <Alert className="mt-3" variant={message.includes('success') ? 'success' : 'danger'}>{message}</Alert>}
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

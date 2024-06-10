@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { axiosInstance5000 } from './axiosConfig';import zxcvbn from 'zxcvbn'; 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useEffect } from 'react';
+import { axiosInstance5000 } from './axiosConfig';
+import zxcvbn from 'zxcvbn';
+import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,19 @@ const RegisterForm = () => {
   });
   const [message, setMessage] = useState('');
   const [passwordStrength, setPasswordStrength] = useState('');
+
+  useEffect(() => {
+    const fetchCsrfToken = async () => {
+      try {
+        const response = await axiosInstance5000.get('/get_csrf_token');
+        axiosInstance5000.defaults.headers.post['X-CSRF-Token'] = response.data.csrf_token;
+      } catch (error) {
+        console.error('Error fetching CSRF token:', error);
+      }
+    };
+
+    fetchCsrfToken();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -67,34 +81,34 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3">
+    <Container>
+      <Row className="justify-content-md-center">
+        <Col md={6}>
           <h1 className="text-center mb-4">Register</h1>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>First Name:</label>
-              <input type="text" name="first_name" value={formData.first_name} onChange={handleChange} className="form-control" required />
-            </div>
-            <div className="form-group">
-              <label>Last Name:</label>
-              <input type="text" name="last_name" value={formData.last_name} onChange={handleChange} className="form-control" required />
-            </div>
-            <div className="form-group">
-              <label>Email:</label>
-              <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control" required />
-            </div>
-            <div className="form-group">
-              <label>Password:</label>
-              <input type="password" name="password" value={formData.password} onChange={handlePasswordChange} className="form-control" required />
-              <div>Password Strength: {passwordStrength}</div>
-            </div>
-            <button type="submit" className="btn btn-primary btn-block">Register</button>
-          </form>
-          {message && <p className="mt-3 text-center">{message}</p>}
-        </div>
-      </div>
-    </div>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formFirstName">
+              <Form.Label>First Name:</Form.Label>
+              <Form.Control type="text" name="first_name" value={formData.first_name} onChange={handleChange} required />
+            </Form.Group>
+            <Form.Group controlId="formLastName">
+              <Form.Label>Last Name:</Form.Label>
+              <Form.Control type="text" name="last_name" value={formData.last_name} onChange={handleChange} required />
+            </Form.Group>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} required />
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control type="password" name="password" value={formData.password} onChange={handlePasswordChange} required />
+              <Form.Text>Password Strength: {passwordStrength}</Form.Text>
+            </Form.Group>
+            <Button variant="primary" type="submit" block>Register</Button>
+          </Form>
+          {message && <Alert className="mt-3" variant={message.includes('success') ? 'success' : 'danger'}>{message}</Alert>}
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
