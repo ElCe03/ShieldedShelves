@@ -43,29 +43,37 @@ function LoginAdmin({ onLogin }) {
   };
 
   return (
-    <div>
-      {step === 1 ? (
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Email:</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-body">
+              {step === 1 ? (
+                <form onSubmit={handleSubmit}>
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Email:</label>
+                    <input type="email" id="email" className="form-control" name="email" value={formData.email} onChange={handleChange} required />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Password:</label>
+                    <input type="password" id="password" className="form-control" name="password" value={formData.password} onChange={handleChange} required />
+                  </div>
+                  <button type="submit" className="btn btn-primary">Login</button>
+                </form>
+              ) : (
+                <form onSubmit={handleOtpSubmit}>
+                  <div className="mb-3">
+                    <label htmlFor="otp" className="form-label">OTP:</label>
+                    <input type="text" id="otp" className="form-control" value={otp} onChange={handleOtpChange} required />
+                  </div>
+                  <button type="submit" className="btn btn-primary">Verify OTP</button>
+                </form>
+              )}
+              {error && <p className="text-danger">{error}</p>}
+            </div>
           </div>
-          <div>
-            <label>Password:</label>
-            <input type="password" name="password" value={formData.password} onChange={handleChange} required />
-          </div>
-          <button type="submit">Login</button>
-        </form>
-      ) : (
-        <form onSubmit={handleOtpSubmit}>
-          <div>
-            <label>OTP:</label>
-            <input type="text" value={otp} onChange={handleOtpChange} required />
-          </div>
-          <button type="submit">Verify OTP</button>
-        </form>
-      )}
-      {error && <p>{error}</p>}
+        </div>
+      </div>
     </div>
   );
 }

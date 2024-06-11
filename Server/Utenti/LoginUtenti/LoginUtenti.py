@@ -18,8 +18,8 @@ DB_HOST = os.environ.get('DB_HOST')
 DB_NAME = os.environ.get('DB_NAME')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-if not all([DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, SECRET_KEY]):
-    raise ValueError("Environmental variables are not properly set")
+assert all([DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, SECRET_KEY]), "Environmental variables are not properly set"
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
@@ -86,11 +86,9 @@ def login():
         assert password is not None, "Password is missing"
         
         user = User.query.filter_by(email=email).first()
-        if user is None:
-            return jsonify(message="User not found"), 404
+        assert user is not None, "User not found"
         
-        if not bcrypt.check_password_hash(user.password_hash, password):
-            return jsonify(message="Invalid credentials"), 401
+        assert bcrypt.check_password_hash(user.password_hash, password), "Invalid credentials"
         
         token = f"token-{user.id}"
         

@@ -26,9 +26,7 @@ TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
 TWILIO_PHONE_NUMBER = os.environ.get('TWILIO_PHONE_NUMBER')
 SECRET_KEY_OTP=pyotp.random_base32()
 
-
-if not all([DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, SECRET_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, SECRET_KEY_OTP]):
-    raise ValueError("Environmental variables are not properly set")
+assert all([DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, SECRET_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, SECRET_KEY_OTP]), "Environmental variables are not properly set"
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
@@ -54,6 +52,26 @@ handler.setFormatter(formatter)
 app.logger.addHandler(handler)
 app.logger.setLevel(logging.INFO)
 
+def create_admin(first_name, last_name, email, password, phone_number):
+    try:
+        with app.app_context():
+            password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+
+            new_admin = Admin(
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+                password_hash=password_hash,
+                phone_number=phone_number
+            )
+
+            db.session.add(new_admin)
+            db.session.commit()
+
+        print("Amministratore registrato con successo!")
+    except Exception as e:
+        print(f"Si è verificato un errore durante la registrazione dell'amministratore: {str(e)}")
+
 class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(150), nullable=False)
@@ -75,7 +93,6 @@ otp_schema = OtpSchema()
 
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 totp = pyotp.TOTP(base64.b32encode(SECRET_KEY_OTP.encode()).decode(), interval=180)
-
 
 def send_otp_via_sms(user_phone_number, otp):
     try:
@@ -106,25 +123,20 @@ def log_response_info(response):
 def login():
     try:
         data = request.get_json()
-        if data is None:
-            raise AssertionError("No data provided")
+        assert data is not None, "No data provided"
         
         login_schema.load(data)
         
         email = data.get('email')
         password = data.get('password')
         
-        if email is None:
-            raise AssertionError("Email is missing")
-        if password is None:
-            raise AssertionError("Password is missing")
+        assert email is not None, "Email is missing"
+        assert password is not None, "Password is missing"
         
         admin = Admin.query.filter_by(email=email).first()
-        if admin is None:
-            return jsonify(message="User not found"), 404
+        assert admin is not None, "User not found"
         
-        if not bcrypt.check_password_hash(admin.password_hash, password):
-            return jsonify(message="Invalid credentials"), 401
+        assert bcrypt.check_password_hash(admin.password_hash, password), "Invalid credentials"
         
         otp = totp.now()
         send_otp_via_sms(admin.phone_number, otp)  
@@ -147,25 +159,19 @@ def login():
 def verify_otp():
     try:
         data = request.get_json()
-        if data is None:
-            raise AssertionError("No data provided")
+        assert data is not None, "No data provided"
         
         otp_schema.load(data)
         
         email = data.get('email')
         otp = data.get('otp')
-        print(otp)
         
-        if email is None:
-            raise AssertionError("Email is missing")
-        if otp is None:
-            raise AssertionError("OTP is missing")
+        assert email is not None, "Email is missing"
+        assert otp is not None, "OTP is missing"
         
         user = Admin.query.filter_by(email=email).first()
-        if user is None:
-            return jsonify(message="User not found"), 404
-        if not totp.verify(otp):
-            return jsonify(message="Invalid OTP"), 401
+        assert user is not None, "User not found"
+        assert totp.verify(otp), "Invalid OTP"
         
         token = f"token-{user.id}"
         
@@ -187,4 +193,5 @@ def get_csrf_token():
     return jsonify({'csrf_token': token})
 
 if __name__ == '__main__':
+    create_admin("Nome", "Cognome", "esempio@email.com", "password123", "+393888086094")
     app.run(debug=True, port=5002)
