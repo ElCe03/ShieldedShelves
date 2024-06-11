@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { axiosInstance5001 } from './axiosConfig';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
+import xss from 'xss'; 
 
 const LoginForm = ({ onLogin }) => {
   const [formData, setFormData] = useState({
@@ -29,10 +30,36 @@ const LoginForm = ({ onLogin }) => {
     });
   };
 
+  const validateInput = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setMessage('Invalid email address');
+      return false;
+    }
+
+    if (formData.password.length < 8) {
+      setMessage('Password must be at least 8 characters long');
+      return false;
+    }
+
+    setMessage('');
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateInput()) {
+      return;
+    }
+
+    const sanitizedFormData = {
+      email: xss(formData.email),
+      password: xss(formData.password)
+    };
+
     try {
-      const response = await axiosInstance5001.post('/login', formData);
+      const response = await axiosInstance5001.post('/login', sanitizedFormData);
       setMessage(response.data.message);
       if (response.status === 200) {
         onLogin();

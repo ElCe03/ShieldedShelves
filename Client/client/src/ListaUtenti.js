@@ -41,11 +41,26 @@ function ListaUtenti() {
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === "email") {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(value)) {
+        setError('Email non valida');
+        return;
+      }
+    }
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.first_name || !formData.last_name || !formData.email) {
+      setError('Per favore compila tutti i campi');
+      return;
+    }
     try {
       await axiosInstance5003.put(`/users/${formData.id}`, formData);
       fetchUsers();

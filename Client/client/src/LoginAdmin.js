@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { axiosInstance5002 } from './axiosConfig';
 import { useNavigate } from 'react-router-dom';
+import xss from 'xss'; 
 
 function LoginAdmin({ onLogin }) {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -20,7 +21,11 @@ function LoginAdmin({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosInstance5002.post('/login', formData);
+      const sanitizedFormData = {
+        email: xss(formData.email),
+        password: xss(formData.password)
+      };
+      const response = await axiosInstance5002.post('/login', sanitizedFormData);
       if (response.data.message === 'OTP sent to your phone number') {
         setStep(2);
       }
@@ -32,7 +37,11 @@ function LoginAdmin({ onLogin }) {
   const handleOtpSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosInstance5002.post('/verify_otp', { email: formData.email, otp });
+      const sanitizedFormData = {
+        email: xss(formData.email),
+        otp: xss(otp)
+      };
+      const response = await axiosInstance5002.post('/verify_otp', sanitizedFormData);
       if (response.data.message === 'Login successful') {
         onLogin();
         navigate('/admin');

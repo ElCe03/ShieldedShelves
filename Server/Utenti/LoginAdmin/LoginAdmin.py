@@ -29,6 +29,7 @@ SECRET_KEY_OTP=pyotp.random_base32()
 assert all([DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, SECRET_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, SECRET_KEY_OTP]), "Environmental variables are not properly set"
 
 app = Flask(__name__)
+app.config['TESTING'] = os.environ.get('TESTING', False)
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = SECRET_KEY
@@ -37,11 +38,15 @@ CORS(app, supports_credentials=True)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 redis_store = Redis(host='localhost', port=6379)
-limiter = Limiter(
-    app,
-    key_func=get_remote_address,
-    storage_uri="redis://localhost:6379"
-)
+if not app.config['TESTING']:
+    limiter = Limiter(
+        app,
+        key_func=get_remote_address,
+        storage_uri="redis://localhost:6379"
+    )
+else:
+    limiter = Limiter(app, key_func=get_remote_address)
+    limiter.enabled = False
 csrf = CSRFProtect(app)
 csrf.init_app(app)
 
