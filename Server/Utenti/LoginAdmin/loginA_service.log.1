@@ -1,0 +1,218 @@
+2024-06-11 14:32:49,241 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiOWUyODkwMjY5YzcxNGMwMTEzMzg3MjNkNjlhOThmYjI2YzM5NjhhZiJ9.ZmgVww.79EkBa45jxTrYKSCo4hOgfV34lA
+
+
+2024-06-11 14:32:49,274 - INFO - Body: b''
+2024-06-11 14:32:49,275 - INFO - Response status: 200 OK
+2024-06-11 14:32:49,275 - INFO - Response body: {
+  "csrf_token": "IjllMjg5MDI2OWM3MTRjMDExMzM4NzIzZDY5YTk4ZmIyNmMzOTY4YWYi.ZmhD8Q.5MEcn9elzSZsyQW036s-p9nxNLo"
+}
+
+2024-06-11 14:32:49,292 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5002/verify_otp
+2024-06-11 14:32:49,292 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrftoken
+Origin: http://localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-11 14:32:49,292 - INFO - Body: b''
+2024-06-11 14:32:49,292 - INFO - Response status: 200 OK
+2024-06-11 14:32:49,292 - INFO - Response body: 
+2024-06-11 14:32:49,502 - INFO - Request: 127.0.0.1 POST http://localhost:5002/verify_otp
+2024-06-11 14:32:49,503 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Content-Length: 49
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Sec-Ch-Ua-Mobile: ?0
+X-Csrftoken: IjllMjg5MDI2OWM3MTRjMDExMzM4NzIzZDY5YTk4ZmIyNmMzOTY4YWYi.ZmhD8Q.5MEcn9elzSZsyQW036s-p9nxNLo
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiOWUyODkwMjY5YzcxNGMwMTEzMzg3MjNkNjlhOThmYjI2YzM5NjhhZiJ9.ZmgVww.79EkBa45jxTrYKSCo4hOgfV34lA
+
+
+2024-06-11 14:32:49,503 - INFO - Body: b'{"email":"lucacris2003@gmail.com","otp":"887019"}'
+2024-06-11 14:32:49,507 - INFO - Response status: 401 UNAUTHORIZED
+2024-06-11 14:32:49,507 - INFO - Response body: {
+  "message": "Invalid OTP"
+}
+
+2024-06-11 14:33:56,123 - INFO - Request: 127.0.0.1 GET http://localhost:5002/get_csrf_token
+2024-06-11 14:33:56,124 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiOWUyODkwMjY5YzcxNGMwMTEzMzg3MjNkNjlhOThmYjI2YzM5NjhhZiJ9.ZmgVww.79EkBa45jxTrYKSCo4hOgfV34lA
+
+
+2024-06-11 14:33:56,125 - INFO - Body: b''
+2024-06-11 14:33:56,125 - INFO - Response status: 200 OK
+2024-06-11 14:33:56,126 - INFO - Response body: {
+  "csrf_token": "IjllMjg5MDI2OWM3MTRjMDExMzM4NzIzZDY5YTk4ZmIyNmMzOTY4YWYi.ZmhENA.R1HOaCSMt01-15flmZavfTEmOtE"
+}
+
+2024-06-11 14:33:56,448 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5002/login
+2024-06-11 14:33:56,449 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrftoken
+Origin: http://localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-11 14:33:56,449 - INFO - Body: b''
+2024-06-11 14:33:56,449 - INFO - Response status: 200 OK
+2024-06-11 14:33:56,449 - INFO - Response body: 
+2024-06-11 14:33:56,453 - INFO - Request: 127.0.0.1 POST http://localhost:5002/login
+2024-06-11 14:33:56,453 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Content-Length: 56
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Sec-Ch-Ua-Mobile: ?0
+X-Csrftoken: IjllMjg5MDI2OWM3MTRjMDExMzM4NzIzZDY5YTk4ZmIyNmMzOTY4YWYi.ZmhENA.R1HOaCSMt01-15flmZavfTEmOtE
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiOWUyODkwMjY5YzcxNGMwMTEzMzg3MjNkNjlhOThmYjI2YzM5NjhhZiJ9.ZmgVww.79EkBa45jxTrYKSCo4hOgfV34lA
+
+
+2024-06-11 14:33:56,453 - INFO - Body: b'{"email":"lucacris2003@gmail.com","password":"password"}'
+2024-06-11 14:33:57,426 - INFO - Request: 127.0.0.1 GET http://localhost:5002/get_csrf_token
+2024-06-11 14:33:57,427 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiOWUyODkwMjY5YzcxNGMwMTEzMzg3MjNkNjlhOThmYjI2YzM5NjhhZiJ9.ZmgVww.79EkBa45jxTrYKSCo4hOgfV34lA
+
+
+2024-06-11 14:33:57,427 - INFO - Body: b''
+2024-06-11 14:33:57,428 - INFO - Response status: 200 OK
+2024-06-11 14:33:57,428 - INFO - Response body: {
+  "csrf_token": "IjllMjg5MDI2OWM3MTRjMDExMzM4NzIzZDY5YTk4ZmIyNmMzOTY4YWYi.ZmhENQ.dhw1YWPGZJoB1hJJjCWXY4_8gj8"
+}
+
+2024-06-11 14:33:57,653 - INFO - OTP message sent successfully!
+2024-06-11 14:33:57,653 - INFO - OTP sent to user: lucacris2003@gmail.com
+2024-06-11 14:33:57,654 - INFO - Response status: 200 OK
+2024-06-11 14:33:57,654 - INFO - Response body: {
+  "message": "OTP sent to your phone number"
+}
+
+2024-06-11 14:33:57,774 - INFO - Request: 127.0.0.1 POST http://localhost:5002/login
+2024-06-11 14:33:57,774 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Content-Length: 56
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Sec-Ch-Ua-Mobile: ?0
+X-Csrftoken: IjllMjg5MDI2OWM3MTRjMDExMzM4NzIzZDY5YTk4ZmIyNmMzOTY4YWYi.ZmhENQ.dhw1YWPGZJoB1hJJjCWXY4_8gj8
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiOWUyODkwMjY5YzcxNGMwMTEzMzg3MjNkNjlhOThmYjI2YzM5NjhhZiJ9.ZmgVww.79EkBa45jxTrYKSCo4hOgfV34lA
+
+
+2024-06-11 14:33:57,775 - INFO - Body: b'{"email":"lucacris2003@gmail.com","password":"password"}'
+2024-06-11 14:33:58,235 - INFO - OTP message sent successfully!
+2024-06-11 14:33:58,236 - INFO - OTP sent to user: lucacris2003@gmail.com
+2024-06-11 14:33:58,236 - INFO - Response status: 200 OK
+2024-06-11 14:33:58,236 - INFO - Response body: {
+  "message": "OTP sent to your phone number"
+}
+
+2024-06-11 14:34:14,037 - INFO - Request: 127.0.0.1 GET http://localhost:5002/get_csrf_token
+2024-06-11 14:34:14,037 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiOWUyODkwMjY5YzcxNGMwMTEzMzg3MjNkNjlhOThmYjI2YzM5NjhhZiJ9.ZmgVww.79EkBa45jxTrYKSCo4hOgfV34lA
+
+
+2024-06-11 14:34:14,038 - INFO - Body: b''
+2024-06-11 14:34:14,038 - INFO - Response status: 200 OK
+2024-06-11 14:34:14,038 - INFO - Response body: {
+  "csrf_token": "IjllMjg5MDI2OWM3MTRjMDExMzM4NzIzZDY5YTk4ZmIyNmMzOTY4YWYi.ZmhERg.wKSbFsPBl6drqOoeQYLkC4j5NG4"
+}
+

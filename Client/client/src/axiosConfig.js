@@ -24,4 +24,16 @@ axiosInstance5001.interceptors.request.use(async config => {
   return config;
 });
 
-export { axiosInstance5000, axiosInstance5001 };
+const axiosInstance5002 = axios.create({
+  baseURL: 'http://localhost:5002',
+  withCredentials: true,
+});
+
+axiosInstance5002.interceptors.request.use(async config => {
+  const csrfResponse = await axios.get('http://localhost:5002/get_csrf_token', { withCredentials: true });
+  const csrfToken = csrfResponse.data.csrf_token;
+  config.headers['X-CSRFToken'] = csrfToken;
+  return config;
+});
+
+export { axiosInstance5000, axiosInstance5001, axiosInstance5002 };
