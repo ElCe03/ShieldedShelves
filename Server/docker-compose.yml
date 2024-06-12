@@ -1,0 +1,62 @@
+services:
+  registrazione:
+    build:
+      context: /home/elce/Coding/Università/PSS/ShieldedShelves/Server/Utenti/Registrazione/
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - SECRET_KEY=${SECRET_KEY}
+
+  loginutenti:
+    build:
+      context: /home/elce/Coding/Università/PSS/ShieldedShelves/Server/Utenti/LoginUtenti/
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - SECRET_KEY=${SECRET_KEY}
+
+  loginadmin:
+    build:
+      context: /home/elce/Coding/Università/PSS/ShieldedShelves/Server/Utenti/LoginAdmin/
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_NAME2=${DB_NAME2}
+      - SECRET_KEY=${SECRET_KEY}
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - TWILIO_PHONE_NUMBER=${TWILIO_PHONE_NUMBER}
+      - SECRET_KEY_OTP=${SECRET_KEY_OTP}
+
+
+
+  listautenti:
+    build:
+      context: /home/elce/Coding/Università/PSS/ShieldedShelves/Server/Utenti/ListaUtenti/
+      dockerfile: Dockerfile
+    ports:
+      - "5003:5003"
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - SECRET_KEY=${SECRET_KEY}
+
+
+
+
