@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DB_USER: your_db_user
-      DB_PASSWORD: your_db_password
-      DB_HOST: your_db_host
-      DB_NAME: your_db_name
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_NAME: ${{ secrets.DB_NAME }}
 
     steps:
       - name: Checkout repository
@@ -38,3 +38,4 @@ jobs:
               python -m unittest discover -s "$dir" -p "test_*.py"
             fi
           done
+
