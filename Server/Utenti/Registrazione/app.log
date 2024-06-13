@@ -1,0 +1,171 @@
+2024-06-13 12:22:26,813 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Content-Length: 103
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+X-Csrf-Token: IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrH9w.lMaxREpeLnKaD3JsCIyEW3CdstA
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: application/json, text/plain, */*
+X-Csrftoken: IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrIYg.vDZp-s5tktZKLW0y081Qr77Ba8c
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiN2NhYzUxN2E0ZDI0YTYzNTZhNzBiMmFiY2Y5MDFiYWIxNzY5OTkyMCJ9.ZmrH9w.urxVk9X47n3z-5m3id2k-B4rqBo
+
+
+2024-06-13 12:22:26,814 - INFO - Body: b'{"first_name":"Luca","last_name":"Criscuolo","email":"lucacris2003@gmail.com","password":"mammt03_123"}'
+2024-06-13 12:22:27,021 - ERROR - Error registering user: (MySQLdb._exceptions.IntegrityError) (1364, "Field 'id' doesn't have a default value")
+[SQL: INSERT INTO user (first_name, last_name, email, password_hash) VALUES (%s, %s, %s, %s)]
+[parameters: ('Luca', 'Criscuolo', 'lucacris2003@gmail.com', '$2b$12$D3SHgfxI3MVaeBRv44vjAu61JftRynzIjl/7241XXAiZdh9fwx8Me')]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+2024-06-13 12:22:27,022 - INFO - Response status: 500 INTERNAL SERVER ERROR
+2024-06-13 12:22:27,022 - INFO - Response body: {
+  "message": "Error: (MySQLdb._exceptions.IntegrityError) (1364, \"Field 'id' doesn't have a default value\")\n[SQL: INSERT INTO user (first_name, last_name, email, password_hash) VALUES (%s, %s, %s, %s)]\n[parameters: ('Luca', 'Criscuolo', 'lucacris2003@gmail.com', '$2b$12$D3SHgfxI3MVaeBRv44vjAu61JftRynzIjl/7241XXAiZdh9fwx8Me')]\n(Background on this error at: https://sqlalche.me/e/14/gkpj)"
+}
+
+2024-06-13 12:25:35,740 - INFO - Request: 127.0.0.1 GET http://localhost:5000/get_csrf_token
+2024-06-13 12:25:35,741 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiN2NhYzUxN2E0ZDI0YTYzNTZhNzBiMmFiY2Y5MDFiYWIxNzY5OTkyMCJ9.ZmrH9w.urxVk9X47n3z-5m3id2k-B4rqBo
+
+
+2024-06-13 12:25:35,742 - INFO - Body: b''
+2024-06-13 12:25:35,742 - INFO - Response status: 200 OK
+2024-06-13 12:25:35,742 - INFO - Response body: {
+  "csrf_token": "IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrJHw.xRyIY282z8IHSpl6r6OA2z_BJ_A"
+}
+
+2024-06-13 12:25:36,069 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5000/get_csrf_token
+2024-06-13 12:25:36,069 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: GET
+Access-Control-Request-Headers: x-csrftoken
+Origin: http://localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-13 12:25:36,070 - INFO - Body: b''
+2024-06-13 12:25:36,070 - INFO - Response status: 200 OK
+2024-06-13 12:25:36,070 - INFO - Response body: 
+2024-06-13 12:25:36,074 - INFO - Request: 127.0.0.1 GET http://localhost:5000/get_csrf_token
+2024-06-13 12:25:36,075 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+X-Csrftoken: IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrJHw.xRyIY282z8IHSpl6r6OA2z_BJ_A
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiN2NhYzUxN2E0ZDI0YTYzNTZhNzBiMmFiY2Y5MDFiYWIxNzY5OTkyMCJ9.ZmrH9w.urxVk9X47n3z-5m3id2k-B4rqBo
+
+
+2024-06-13 12:25:36,075 - INFO - Body: b''
+2024-06-13 12:25:36,075 - INFO - Response status: 200 OK
+2024-06-13 12:25:36,075 - INFO - Response body: {
+  "csrf_token": "IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrJIA.B370_Q1p4lM-FeT5dP7b7O9W6R0"
+}
+
+2024-06-13 12:25:41,564 - INFO - Request: 127.0.0.1 GET http://localhost:5000/get_csrf_token
+2024-06-13 12:25:41,564 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiN2NhYzUxN2E0ZDI0YTYzNTZhNzBiMmFiY2Y5MDFiYWIxNzY5OTkyMCJ9.ZmrH9w.urxVk9X47n3z-5m3id2k-B4rqBo
+
+
+2024-06-13 12:25:41,565 - INFO - Body: b''
+2024-06-13 12:25:41,565 - INFO - Response status: 200 OK
+2024-06-13 12:25:41,565 - INFO - Response body: {
+  "csrf_token": "IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrJJQ.aDVyYT_xdFikfrJnDGbWXvU43Mg"
+}
+
+2024-06-13 12:25:41,569 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5000/register
+2024-06-13 12:25:41,569 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrf-token,x-csrftoken
+Origin: http://localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-13 12:25:41,570 - INFO - Body: b''
+2024-06-13 12:25:41,570 - INFO - Response status: 200 OK
+2024-06-13 12:25:41,570 - INFO - Response body: 
+2024-06-13 12:25:41,811 - INFO - Request: 127.0.0.1 POST http://localhost:5000/register
+2024-06-13 12:25:41,812 - INFO - Headers: Host: localhost:5000
+Connection: keep-alive
+Content-Length: 103
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+X-Csrf-Token: IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrJIA.B370_Q1p4lM-FeT5dP7b7O9W6R0
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: application/json, text/plain, */*
+X-Csrftoken: IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrJJQ.aDVyYT_xdFikfrJnDGbWXvU43Mg
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiN2NhYzUxN2E0ZDI0YTYzNTZhNzBiMmFiY2Y5MDFiYWIxNzY5OTkyMCJ9.ZmrH9w.urxVk9X47n3z-5m3id2k-B4rqBo
+
+
+2024-06-13 12:25:41,812 - INFO - Body: b'{"first_name":"Luca","last_name":"Criscuolo","email":"lucacris2003@gmail.com","password":"mammt03_123"}'
+2024-06-13 12:25:42,020 - INFO - User registered: lucacris2003@gmail.com
+2024-06-13 12:25:42,021 - INFO - Response status: 201 CREATED
+2024-06-13 12:25:42,021 - INFO - Response body: {
+  "message": "User registered successfully!"
+}
+

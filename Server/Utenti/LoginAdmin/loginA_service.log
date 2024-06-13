@@ -1,0 +1,144 @@
+2024-06-13 12:30:21,086 - INFO - Request: 127.0.0.1 GET http://localhost:5002/get_csrf_token
+2024-06-13 12:30:21,088 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiN2NhYzUxN2E0ZDI0YTYzNTZhNzBiMmFiY2Y5MDFiYWIxNzY5OTkyMCJ9.ZmrH9w.urxVk9X47n3z-5m3id2k-B4rqBo
+
+
+2024-06-13 12:30:21,091 - INFO - Body: b''
+2024-06-13 12:30:21,093 - INFO - Response status: 200 OK
+2024-06-13 12:30:21,094 - INFO - Response body: {
+  "csrf_token": "IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrKPQ.nO9axke9xZR9rxer5XqQ5k_O46Y"
+}
+
+2024-06-13 12:30:21,411 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5002/login
+2024-06-13 12:30:21,412 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrftoken
+Origin: http://localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-13 12:30:21,412 - INFO - Body: b''
+2024-06-13 12:30:21,413 - INFO - Response status: 200 OK
+2024-06-13 12:30:21,413 - INFO - Response body: 
+2024-06-13 12:30:21,417 - INFO - Request: 127.0.0.1 POST http://localhost:5002/login
+2024-06-13 12:30:21,417 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Content-Length: 54
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Sec-Ch-Ua-Mobile: ?0
+X-Csrftoken: IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrKPQ.nO9axke9xZR9rxer5XqQ5k_O46Y
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiN2NhYzUxN2E0ZDI0YTYzNTZhNzBiMmFiY2Y5MDFiYWIxNzY5OTkyMCJ9.ZmrH9w.urxVk9X47n3z-5m3id2k-B4rqBo
+
+
+2024-06-13 12:30:21,417 - INFO - Body: b'{"email":"esempio@email.com","password":"password123"}'
+2024-06-13 12:30:22,431 - INFO - OTP message sent successfully!
+2024-06-13 12:30:22,431 - INFO - OTP sent to user: esempio@email.com
+2024-06-13 12:30:22,432 - INFO - Response status: 200 OK
+2024-06-13 12:30:22,432 - INFO - Response body: {
+  "message": "OTP sent to your phone number"
+}
+
+2024-06-13 12:30:42,154 - INFO - Request: 127.0.0.1 GET http://localhost:5002/get_csrf_token
+2024-06-13 12:30:42,155 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiN2NhYzUxN2E0ZDI0YTYzNTZhNzBiMmFiY2Y5MDFiYWIxNzY5OTkyMCJ9.ZmrH9w.urxVk9X47n3z-5m3id2k-B4rqBo
+
+
+2024-06-13 12:30:42,155 - INFO - Body: b''
+2024-06-13 12:30:42,155 - INFO - Response status: 200 OK
+2024-06-13 12:30:42,155 - INFO - Response body: {
+  "csrf_token": "IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrKUg.7tHbFX42x_aqJSfvP1t8Heipbj8"
+}
+
+2024-06-13 12:30:42,472 - INFO - Request: 127.0.0.1 OPTIONS http://localhost:5002/verify_otp
+2024-06-13 12:30:42,472 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Accept: */*
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-csrftoken
+Origin: http://localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+
+
+2024-06-13 12:30:42,472 - INFO - Body: b''
+2024-06-13 12:30:42,473 - INFO - Response status: 200 OK
+2024-06-13 12:30:42,473 - INFO - Response body: 
+2024-06-13 12:30:42,479 - INFO - Request: 127.0.0.1 POST http://localhost:5002/verify_otp
+2024-06-13 12:30:42,479 - INFO - Headers: Host: localhost:5002
+Connection: keep-alive
+Content-Length: 44
+Sec-Ch-Ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Sec-Ch-Ua-Mobile: ?0
+X-Csrftoken: IjdjYWM1MTdhNGQyNGE2MzU2YTcwYjJhYmNmOTAxYmFiMTc2OTk5MjAi.ZmrKUg.7tHbFX42x_aqJSfvP1t8Heipbj8
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: session=eyJjc3JmX3Rva2VuIjoiN2NhYzUxN2E0ZDI0YTYzNTZhNzBiMmFiY2Y5MDFiYWIxNzY5OTkyMCJ9.ZmrH9w.urxVk9X47n3z-5m3id2k-B4rqBo
+
+
+2024-06-13 12:30:42,481 - INFO - Body: b'{"email":"esempio@email.com","otp":"525119"}'
+2024-06-13 12:30:42,492 - INFO - User verified with OTP: esempio@email.com
+2024-06-13 12:30:42,493 - INFO - Response status: 200 OK
+2024-06-13 12:30:42,494 - INFO - Response body: {
+  "message": "Login successful",
+  "token": "token-1"
+}
+
