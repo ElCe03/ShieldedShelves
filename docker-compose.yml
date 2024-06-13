@@ -1,0 +1,92 @@
+services:
+  redis:
+    image: "redis:alpine"
+    container_name: "redis"
+    networks:
+      - mynetwork
+
+  registrazione:
+    build:
+      context: Server/Utenti/Registrazione/
+      dockerfile: Dockerfile.registrazione
+    container_name: "registrazione"
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - SECRET_KEY=${SECRET_KEY}
+    depends_on:
+      - redis
+    networks:
+      - mynetwork
+
+  loginutenti:
+    build:
+      context: Server/Utenti/LoginUtenti/
+      dockerfile: Dockerfile.loginutenti
+    container_name: "loginutenti"
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - SECRET_KEY=${SECRET_KEY}
+    depends_on:
+      - redis
+    networks:
+      - mynetwork
+
+  loginadmin:
+    build:
+      context: Server/Utenti/LoginAdmin/
+      dockerfile: Dockerfile.loginadmin
+    container_name: "loginadmin"
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_NAME2=${DB_NAME2}
+      - SECRET_KEY=${SECRET_KEY}
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - TWILIO_PHONE_NUMBER=${TWILIO_PHONE_NUMBER}
+    depends_on:
+      - redis
+    networks:
+      - mynetwork
+
+  listautenti:
+    build:
+      context: Server/Utenti/ListaUtenti/
+      dockerfile: Dockerfile.listautenti
+    container_name: "listautenti"
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - SECRET_KEY=${SECRET_KEY}
+    depends_on:
+      - redis
+    networks:
+      - mynetwork
+
+  client:
+    build:
+      context: Client/client
+      dockerfile: Dockerfile.client
+    container_name: "client"
+    ports:
+      - "80:80"  
+    depends_on:
+      - registrazione
+      - loginutenti
+      - loginadmin
+      - listautenti
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge

@@ -1,36 +1,47 @@
 services:
+  redis:
+    image: "redis:alpine"
+    container_name: "redis"
+    ports:
+      - "6379:6379"
+
   registrazione:
     build:
-      context: /home/elce/Coding/Università/PSS/ShieldedShelves/Server/Utenti/Registrazione/
-      dockerfile: Dockerfile
-    ports:
-      - "5000:5000"
+      context: Utenti/Registrazione/
+      dockerfile: Dockerfile.registrazione
+    container_name: "registrazione"
     environment:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_HOST=${DB_HOST}
       - DB_NAME=${DB_NAME}
       - SECRET_KEY=${SECRET_KEY}
+    depends_on:
+      - redis
+    ports:
+      - "5000:5000"
 
   loginutenti:
     build:
-      context: /home/elce/Coding/Università/PSS/ShieldedShelves/Server/Utenti/LoginUtenti/
-      dockerfile: Dockerfile
-    ports:
-      - "5001:5001"
+      context: Utenti/LoginUtenti/
+      dockerfile: Dockerfile.loginutenti
+    container_name: "loginutenti"
     environment:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_HOST=${DB_HOST}
       - DB_NAME=${DB_NAME}
       - SECRET_KEY=${SECRET_KEY}
+    depends_on:
+      - redis
+    ports:
+      - "5001:5001"
 
   loginadmin:
     build:
-      context: /home/elce/Coding/Università/PSS/ShieldedShelves/Server/Utenti/LoginAdmin/
-      dockerfile: Dockerfile
-    ports:
-      - "5002:5002"
+      context: Utenti/LoginAdmin/
+      dockerfile: Dockerfile.loginadmin
+    container_name: "loginadmin"
     environment:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
@@ -40,23 +51,23 @@ services:
       - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
       - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
       - TWILIO_PHONE_NUMBER=${TWILIO_PHONE_NUMBER}
-      - SECRET_KEY_OTP=${SECRET_KEY_OTP}
-
-
+    depends_on:
+      - redis
+    ports:
+      - "5002:5002"
 
   listautenti:
     build:
-      context: /home/elce/Coding/Università/PSS/ShieldedShelves/Server/Utenti/ListaUtenti/
-      dockerfile: Dockerfile
-    ports:
-      - "5003:5003"
+      context: Utenti/ListaUtenti/
+      dockerfile: Dockerfile.listautenti
+    container_name: "listautenti"
     environment:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_HOST=${DB_HOST}
       - DB_NAME=${DB_NAME}
       - SECRET_KEY=${SECRET_KEY}
-
-
-
-
+    depends_on:
+      - redis
+    ports:
+      - "5003:5003"
