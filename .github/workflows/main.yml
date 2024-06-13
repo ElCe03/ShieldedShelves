@@ -12,6 +12,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      DB_USER: your_db_user
+      DB_PASSWORD: your_db_password
+      DB_HOST: your_db_host
+      DB_NAME: your_db_name
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
